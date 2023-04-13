@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "name": "กระดาษกล่อง",
+        "trash_type": "",
+        "category": "",
+        "massage": [
+            {
+                "type": "text",
+                "text": "เก็บรวบรวม"
+            },
+            {
+                "type": "text",
+                "text": "พับ"
+            },
+            {
+                "type": "text",
+                "text": "มัดเป็นตั้ง"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "กระดาษขาวดำ",
+        "trash_type": "",
+        "category": "",
+        "massage": [
+            {}
+        ]
+    },
+    {
+        "id": 3,
+        "name": "กล่องเครื่องดืื่ม",
+        "trash_type": "",
+        "category": "",
+        "massage": [
+            {}
+        ]
+    },
+    {
+        "id": 4,
+        "name": "ขวด PET ใส",
+        "trash_type": "",
+        "category": "",
+        "massage": [
+            {}
+        ]
+    },
+    {
+        "id": 5,
+        "name": "กระป๋องอลูมิเนียม",
+        "trash_type": "",
+        "category": "",
+        "massage": [
+            {}
+        ]
+    }
+]
