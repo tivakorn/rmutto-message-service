@@ -7,7 +7,8 @@ import {
     MiddlewareConfig,
     WebhookEvent,
     MessageAPIResponseBase,
-    TemplateMessage,
+    FlexMessage,
+    TextMessage
 } from '@line/bot-sdk'
 
 import garbageList from './static/garbage.json'
@@ -30,7 +31,7 @@ const app = express()
 
 const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponseBase | undefined> => {
 
-    let action: TemplateMessage[] = []
+    let action: FlexMessage[] | TextMessage[] = []
 
     if (event.type !== 'message') return
 
@@ -39,6 +40,13 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     if (event.message.type !== 'text') {
 
         text = `ส่ง ${event.message.type} มาหรอ เรายังไม่ทำหรอกนะ.`
+
+        action = [
+            {
+                type: 'text',
+                text: text
+            }
+        ]
     }
 
     if (event.message.type === 'text') {
@@ -47,7 +55,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
         const garbage = garbageList.find(element => element.name === message)
 
-        action = garbage?.massage as TemplateMessage[]
+        action = garbage?.massage as FlexMessage[]
 
         // switch (message) {
         //     case 'กระดาษกล่อง':

@@ -6,30 +6,82 @@
         "category": "",
         "massage": [
             {
-                "type": "template",
-                "altText": "this is a carousel template",
-                "template": {
+                "type": "flex",
+                "altText": "วิธีการแยกขยะ : กระดาษกล่อง",
+                "contents": {
                     "type": "carousel",
-                    "columns": [
+                    "contents": [
                         {
-                            "thumbnailImageUrl": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_4984.png?alt=media&token=a2f8c31f-febd-4454-bd5c-6ee06bfce67b",
-                            "title": "                     Pasta",
-                            "text": "        Choose the menu below"
+                            "type": "bubble",
+                            "hero": {
+                                "type": "image",
+                                "size": "full",
+                                "aspectRatio": "20:13",
+                                "aspectMode": "cover",
+                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
+                            },
+                            "body": {
+                                "type": "box",
+                                "layout": "vertical",
+                                "spacing": "sm",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "กระดาษกล่อง",
+                                        "wrap": true,
+                                        "weight": "bold",
+                                        "size": "xl"
+                                    }
+                                ]
+                            }
                         },
                         {
-                            "thumbnailImageUrl": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_4984.png?alt=media&token=a2f8c31f-febd-4454-bd5c-6ee06bfce67b",
-                            "title": "                     Pizza",
-                            "text": "        Choose the menu below"
+                            "type": "bubble",
+                            "hero": {
+                                "type": "image",
+                                "size": "full",
+                                "aspectRatio": "20:13",
+                                "aspectMode": "cover",
+                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8963.png?alt=media&token=99057b09-5313-426f-8bd9-0d2fbad498a4"
+                            },
+                            "body": {
+                                "type": "box",
+                                "layout": "vertical",
+                                "spacing": "sm",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "เก็บรวบรวม พับ มัดเป็นตั้ง",
+                                        "wrap": true,
+                                        "weight": "bold",
+                                        "size": "xl"
+                                    }
+                                ]
+                            }
                         },
                         {
-                            "thumbnailImageUrl": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_4984.png?alt=media&token=a2f8c31f-febd-4454-bd5c-6ee06bfce67b",
-                            "title": "                     Steak",
-                            "text": "       Choose the menu below"
-                        },
-                        {
-                            "thumbnailImageUrl": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_4984.png?alt=media&token=a2f8c31f-febd-4454-bd5c-6ee06bfce67b",
-                            "title": "                     Pizza",
-                            "text": "        Choose the menu below"
+                            "type": "bubble",
+                            "hero": {
+                                "type": "image",
+                                "size": "full",
+                                "aspectRatio": "20:13",
+                                "aspectMode": "cover",
+                                "url": "https://chinterstore.com/wp-content/uploads/2020/01/F-0010-1-02.jpg"
+                            },
+                            "body": {
+                                "type": "box",
+                                "layout": "vertical",
+                                "spacing": "sm",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "ใส่ถังขยะรีไซเคิล (สีเหลือง)",
+                                        "wrap": true,
+                                        "weight": "bold",
+                                        "size": "xl"
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

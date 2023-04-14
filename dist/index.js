@@ -34,6 +34,12 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
     let text = 'กำลังปั่นงานอยู่นะ!';
     if (event.message.type !== 'text') {
         text = `ส่ง ${event.message.type} มาหรอ เรายังไม่ทำหรอกนะ.`;
+        action = [
+            {
+                type: 'text',
+                text: text
+            }
+        ];
     }
     if (event.message.type === 'text') {
         const message = event.message.text;
