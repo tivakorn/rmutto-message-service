@@ -98,7 +98,7 @@
         "massage": [
             {
                 "type": "flex",
-                "altText": "วิธีการแยกขยะ : กระดาษกล่อง",
+                "altText": "วิธีการแยกขยะ : แก้ว",
                 "contents": {
                     "type": "carousel",
                     "contents": [
@@ -118,7 +118,7 @@
                                 "contents": [
                                     {
                                         "type": "text",
-                                        "text": "กระดาษกล่อง",
+                                        "text": "แก้ว",
                                         "wrap": true,
                                         "weight": "bold",
                                         "size": "xl"
@@ -188,7 +188,7 @@
         "massage": [
             {
                 "type": "flex",
-                "altText": "วิธีการแยกขยะ : กระดาษกล่อง",
+                "altText": "วิธีการแยกขยะ : โลหะ",
                 "contents": {
                     "type": "carousel",
                     "contents": [
@@ -208,7 +208,7 @@
                                 "contents": [
                                     {
                                         "type": "text",
-                                        "text": "กระดาษกล่อง",
+                                        "text": "โลหะ",
                                         "wrap": true,
                                         "weight": "bold",
                                         "size": "xl"
