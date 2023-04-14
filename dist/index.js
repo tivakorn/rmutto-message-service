@@ -28,23 +28,28 @@ const middlewareConfig = {
 const client = new bot_sdk_1.Client(config);
 const app = (0, express_1.default)();
 const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* () {
-    let action = [];
+    // let action: FlexMessage[] | TextMessage[] = []
     if (event.type !== 'message')
         return;
     let text = 'กำลังปั่นงานอยู่นะ!';
     if (event.message.type !== 'text') {
         text = `ส่ง ${event.message.type} มาหรอ เรายังไม่ทำหรอกนะ.`;
-        action = [
+        const action = [
             {
                 type: 'text',
                 text: text
             }
         ];
+        yield client.pushMessage(event.source.userId || '', action);
     }
     if (event.message.type === 'text') {
         const message = event.message.text;
-        const garbage = garbage_json_1.default.find(element => (element.name === message || element.name_en === message));
-        action = garbage === null || garbage === void 0 ? void 0 : garbage.massage;
+        message.split(',');
+        for (const word of message.split(',')) {
+            const garbage = garbage_json_1.default.find(element => (element.name === word || element.name_en === word));
+            const action = garbage === null || garbage === void 0 ? void 0 : garbage.massage;
+            yield client.pushMessage(event.source.userId || '', action);
+        }
         // switch (message) {
         //     case 'กระดาษกล่อง':
         //         text = `เก็บรวบรวม พับ มัดเป็นตั้ง`
@@ -73,7 +78,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
     //     writer.on('finish', resolve)
     //     writer.on('error', reject)
     // })
-    yield client.pushMessage(event.source.userId || '', action);
+    // await client.pushMessage(event.source.userId || '', action)
 });
 app.post('/webhook', (0, bot_sdk_1.middleware)(middlewareConfig), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const events = req.body.events;

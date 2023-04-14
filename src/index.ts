@@ -31,7 +31,7 @@ const app = express()
 
 const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponseBase | undefined> => {
 
-    let action: FlexMessage[] | TextMessage[] = []
+    // let action: FlexMessage[] | TextMessage[] = []
 
     if (event.type !== 'message') return
 
@@ -41,21 +41,30 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
         text = `ส่ง ${event.message.type} มาหรอ เรายังไม่ทำหรอกนะ.`
 
-        action = [
+        const action = [
             {
                 type: 'text',
                 text: text
             }
-        ]
+        ] as TextMessage[]
+
+        await client.pushMessage(event.source.userId || '', action)
     }
 
     if (event.message.type === 'text') {
 
         const message = event.message.text
 
-        const garbage = garbageList.find(element => (element.name === message || element.name_en === message))
+        message.split(',')
 
-        action = garbage?.massage as FlexMessage[]
+        for (const word of message.split(',')) {
+
+            const garbage = garbageList.find(element => (element.name === word || element.name_en === word))
+
+            const action = garbage?.massage as FlexMessage[]
+
+            await client.pushMessage(event.source.userId || '', action)
+        }
 
         // switch (message) {
         //     case 'กระดาษกล่อง':
@@ -96,7 +105,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     //     writer.on('error', reject)
     // })
 
-    await client.pushMessage(event.source.userId || '', action)
+    // await client.pushMessage(event.source.userId || '', action)
 }
 
 app.post('/webhook', middleware(middlewareConfig), async (req: Request, res: Response) => {
