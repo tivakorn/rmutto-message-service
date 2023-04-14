@@ -6,235 +6,30 @@
         "category": "",
         "massage": [
             {
-                "type": "bubble",
-                "hero": {
-                    "type": "image",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-                    "size": "full",
-                    "aspectRatio": "20:13",
-                    "aspectMode": "cover",
-                    "action": {
-                        "type": "uri",
-                        "uri": "http://linecorp.com/"
-                    }
-                },
-                "body": {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "contents": [
+                "type": "template",
+                "altText": "this is a carousel template",
+                "template": {
+                    "type": "carousel",
+                    "columns": [
                         {
-                            "type": "text",
-                            "text": "Brown Cafe",
-                            "weight": "bold",
-                            "size": "xl"
+                            "thumbnailImageUrl": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_4984.png?alt=media&token=a2f8c31f-febd-4454-bd5c-6ee06bfce67b",
+                            "title": "                     Pasta",
+                            "text": "        Choose the menu below"
                         },
                         {
-                            "type": "box",
-                            "layout": "vertical",
-                            "margin": "lg",
-                            "spacing": "sm",
-                            "contents": [
-                                {
-                                    "type": "box",
-                                    "layout": "baseline",
-                                    "spacing": "sm",
-                                    "contents": [
-                                        {
-                                            "type": "text",
-                                            "text": "Place",
-                                            "color": "#aaaaaa",
-                                            "size": "sm",
-                                            "flex": 1
-                                        },
-                                        {
-                                            "type": "text",
-                                            "text": "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
-                                            "wrap": true,
-                                            "color": "#666666",
-                                            "size": "sm",
-                                            "flex": 5
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "box",
-                                    "layout": "baseline",
-                                    "spacing": "sm",
-                                    "contents": [
-                                        {
-                                            "type": "text",
-                                            "text": "Time",
-                                            "color": "#aaaaaa",
-                                            "size": "sm",
-                                            "flex": 1
-                                        },
-                                        {
-                                            "type": "text",
-                                            "text": "10:00 - 23:00",
-                                            "wrap": true,
-                                            "color": "#666666",
-                                            "size": "sm",
-                                            "flex": 5
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "type": "bubble",
-                "hero": {
-                    "type": "image",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-                    "size": "full",
-                    "aspectRatio": "20:13",
-                    "aspectMode": "cover",
-                    "action": {
-                        "type": "uri",
-                        "uri": "http://linecorp.com/"
-                    }
-                },
-                "body": {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": "Brown Cafe",
-                            "weight": "bold",
-                            "size": "xl"
+                            "thumbnailImageUrl": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_4984.png?alt=media&token=a2f8c31f-febd-4454-bd5c-6ee06bfce67b",
+                            "title": "                     Pizza",
+                            "text": "        Choose the menu below"
                         },
                         {
-                            "type": "box",
-                            "layout": "vertical",
-                            "margin": "lg",
-                            "spacing": "sm",
-                            "contents": [
-                                {
-                                    "type": "box",
-                                    "layout": "baseline",
-                                    "spacing": "sm",
-                                    "contents": [
-                                        {
-                                            "type": "text",
-                                            "text": "Place",
-                                            "color": "#aaaaaa",
-                                            "size": "sm",
-                                            "flex": 1
-                                        },
-                                        {
-                                            "type": "text",
-                                            "text": "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
-                                            "wrap": true,
-                                            "color": "#666666",
-                                            "size": "sm",
-                                            "flex": 5
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "box",
-                                    "layout": "baseline",
-                                    "spacing": "sm",
-                                    "contents": [
-                                        {
-                                            "type": "text",
-                                            "text": "Time",
-                                            "color": "#aaaaaa",
-                                            "size": "sm",
-                                            "flex": 1
-                                        },
-                                        {
-                                            "type": "text",
-                                            "text": "10:00 - 23:00",
-                                            "wrap": true,
-                                            "color": "#666666",
-                                            "size": "sm",
-                                            "flex": 5
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "type": "bubble",
-                "hero": {
-                    "type": "image",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-                    "size": "full",
-                    "aspectRatio": "20:13",
-                    "aspectMode": "cover",
-                    "action": {
-                        "type": "uri",
-                        "uri": "http://linecorp.com/"
-                    }
-                },
-                "body": {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": "Brown Cafe",
-                            "weight": "bold",
-                            "size": "xl"
+                            "thumbnailImageUrl": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_4984.png?alt=media&token=a2f8c31f-febd-4454-bd5c-6ee06bfce67b",
+                            "title": "                     Steak",
+                            "text": "       Choose the menu below"
                         },
                         {
-                            "type": "box",
-                            "layout": "vertical",
-                            "margin": "lg",
-                            "spacing": "sm",
-                            "contents": [
-                                {
-                                    "type": "box",
-                                    "layout": "baseline",
-                                    "spacing": "sm",
-                                    "contents": [
-                                        {
-                                            "type": "text",
-                                            "text": "Place",
-                                            "color": "#aaaaaa",
-                                            "size": "sm",
-                                            "flex": 1
-                                        },
-                                        {
-                                            "type": "text",
-                                            "text": "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
-                                            "wrap": true,
-                                            "color": "#666666",
-                                            "size": "sm",
-                                            "flex": 5
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "box",
-                                    "layout": "baseline",
-                                    "spacing": "sm",
-                                    "contents": [
-                                        {
-                                            "type": "text",
-                                            "text": "Time",
-                                            "color": "#aaaaaa",
-                                            "size": "sm",
-                                            "flex": 1
-                                        },
-                                        {
-                                            "type": "text",
-                                            "text": "10:00 - 23:00",
-                                            "wrap": true,
-                                            "color": "#666666",
-                                            "size": "sm",
-                                            "flex": 5
-                                        }
-                                    ]
-                                }
-                            ]
+                            "thumbnailImageUrl": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_4984.png?alt=media&token=a2f8c31f-febd-4454-bd5c-6ee06bfce67b",
+                            "title": "                     Pizza",
+                            "text": "        Choose the menu below"
                         }
                     ]
                 }
