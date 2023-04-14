@@ -43,13 +43,15 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         yield client.pushMessage(event.source.userId || '', action);
     }
     if (event.message.type === 'text') {
+        const actionList = [];
         const message = event.message.text;
         message.split(',');
         for (const word of message.split(',')) {
             const garbage = garbage_json_1.default.find(element => (element.name === word || element.name_en === word));
             const action = garbage === null || garbage === void 0 ? void 0 : garbage.massage;
-            yield client.pushMessage(event.source.userId || '', action);
+            actionList.push(...action);
         }
+        yield client.pushMessage(event.source.userId || '', actionList);
         // switch (message) {
         //     case 'กระดาษกล่อง':
         //         text = `เก็บรวบรวม พับ มัดเป็นตั้ง`

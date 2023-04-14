@@ -53,6 +53,8 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
     if (event.message.type === 'text') {
 
+        const actionList: FlexMessage[] = []
+
         const message = event.message.text
 
         message.split(',')
@@ -62,10 +64,11 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
             const garbage = garbageList.find(element => (element.name === word || element.name_en === word))
 
             const action = garbage?.massage as FlexMessage[]
-
-            await client.pushMessage(event.source.userId || '', action)
+            
+            actionList.push(...action)
         }
 
+        await client.pushMessage(event.source.userId || '', actionList)
         // switch (message) {
         //     case 'กระดาษกล่อง':
         //         text = `เก็บรวบรวม พับ มัดเป็นตั้ง`
