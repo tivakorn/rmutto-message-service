@@ -61,7 +61,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
         for (const word of message.split(',')) {
 
-            const garbage = garbageList.find(element => (element.name === word || element.name_en === word))
+            const garbage = garbageList.find(element => (element.name === word.trim()|| element.name_en === word.trim()))
 
             const action = garbage?.massage as FlexMessage[]
             
