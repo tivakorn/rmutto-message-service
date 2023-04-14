@@ -2,6 +2,7 @@
     {
         "id": 1,
         "name": "กระดาษกล่อง",
+        "name_en": "cardboard",
         "trash_type": "",
         "category": "",
         "massage": [

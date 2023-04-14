@@ -43,7 +43,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
     }
     if (event.message.type === 'text') {
         const message = event.message.text;
-        const garbage = garbage_json_1.default.find(element => element.name === message);
+        const garbage = garbage_json_1.default.find(element => (element.name === message || element.name_en === message));
         action = garbage === null || garbage === void 0 ? void 0 : garbage.massage;
         // switch (message) {
         //     case 'กระดาษกล่อง':
