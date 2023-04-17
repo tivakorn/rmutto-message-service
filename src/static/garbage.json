@@ -361,14 +361,14 @@
     },
     {
         "id": 5,
-        "name_th": "กระป๋องอลูมิเนียม",
+        "name_th": "พลาสติก",
         "name_en": "plastic",
         "trash_type": "recycle",
         "category": "",
         "massage": [
             {
                 "type": "flex",
-                "altText": "วิธีการแยกขยะ : กระดาษกล่อง",
+                "altText": "วิธีการแยกขยะ : พลาสติก",
                 "contents": {
                     "type": "carousel",
                     "contents": [
@@ -379,7 +379,7 @@
                                 "size": "full",
                                 "aspectRatio": "20:13",
                                 "aspectMode": "cover",
-                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
+                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/gettyimages-163310627.webp?alt=media&token=6c8a1e1b-817b-495a-b4b4-9a3ffe26379c"
                             },
                             "body": {
                                 "type": "box",
@@ -388,7 +388,7 @@
                                 "contents": [
                                     {
                                         "type": "text",
-                                        "text": "กระดาษกล่อง",
+                                        "text": "พลาสติก",
                                         "wrap": true,
                                         "weight": "bold",
                                         "size": "xl"
@@ -403,7 +403,7 @@
                                 "size": "full",
                                 "aspectRatio": "20:13",
                                 "aspectMode": "cover",
-                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8963.png?alt=media&token=99057b09-5313-426f-8bd9-0d2fbad498a4"
+                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8986.png?alt=media&token=b7d96651-6c8a-484f-b54d-054abde9ea93"
                             },
                             "body": {
                                 "type": "box",
@@ -412,7 +412,55 @@
                                 "contents": [
                                     {
                                         "type": "text",
-                                        "text": "เก็บรวบรวม พับ มัดเป็นตั้ง",
+                                        "text": "วิธีสังเกต",
+                                        "wrap": true,
+                                        "weight": "bold",
+                                        "size": "xl"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "bubble",
+                            "hero": {
+                                "type": "image",
+                                "size": "full",
+                                "aspectRatio": "20:13",
+                                "aspectMode": "cover",
+                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8987.png?alt=media&token=24f1ebde-df17-47fc-9648-fe563213e958"
+                            },
+                            "body": {
+                                "type": "box",
+                                "layout": "vertical",
+                                "spacing": "sm",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "วิธีการแยก",
+                                        "wrap": true,
+                                        "weight": "bold",
+                                        "size": "xl"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "bubble",
+                            "hero": {
+                                "type": "image",
+                                "size": "full",
+                                "aspectRatio": "20:13",
+                                "aspectMode": "cover",
+                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8988.png?alt=media&token=c410988d-455a-4f30-8eb0-6a36556d3e24"
+                            },
+                            "body": {
+                                "type": "box",
+                                "layout": "vertical",
+                                "spacing": "sm",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "ข้อห้าม",
                                         "wrap": true,
                                         "weight": "bold",
                                         "size": "xl"

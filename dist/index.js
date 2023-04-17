@@ -44,7 +44,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
     }
     if (event.message.type === 'image') {
         const actionList = [];
-        const garbage = garbage_json_1.default.find(element => (element.name_en === 'glass'));
+        const garbage = garbage_json_1.default.find(element => (element.name_en === 'plastic'));
         const action = garbage === null || garbage === void 0 ? void 0 : garbage.massage;
         actionList.push(...action);
         yield client.pushMessage(event.source.userId || '', actionList);
