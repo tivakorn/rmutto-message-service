@@ -16,13 +16,13 @@ import garbageList from './static/garbage.json'
 const port = process.env.PORT || 8080
 
 const config: ClientConfig = {
-    channelAccessToken: '+eqKxMStUW7i8OD4l38KnASSO/dboLt+MtVNKepdpCnnZ3Sblc3mtbcB3TwfVL2caV+uX4oolT4UC1GyqUJT9AaA/rLOq8S5l1bzME9kjInDk46QZE3jCIiarINAncF2fIus42Dd3EAOiXYt+pWjxQdB04t89/1O/w1cDnyilFU=+eqKxMStUW7i8OD4l38KnASSO/dboLt+MtVNKepdpCnnZ3Sblc3mtbcB3TwfVL2caV+uX4oolT4UC1GyqUJT9AaA/rLOq8S5l1bzME9kjInDk46QZE3jCIiarINAncF2fIus42Dd3EAOiXYt+pWjxQdB04t89/1O/w1cDnyilFU=',
-    channelSecret: 'c762f59b6a6d76f00b8fca87859c11dc'
+    channelAccessToken: 'PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=',
+    channelSecret: '537035c20850a60a1da7b96ad8f791bf'
 }
 
 const middlewareConfig: MiddlewareConfig = {
-    channelAccessToken: '+eqKxMStUW7i8OD4l38KnASSO/dboLt+MtVNKepdpCnnZ3Sblc3mtbcB3TwfVL2caV+uX4oolT4UC1GyqUJT9AaA/rLOq8S5l1bzME9kjInDk46QZE3jCIiarINAncF2fIus42Dd3EAOiXYt+pWjxQdB04t89/1O/w1cDnyilFU=+eqKxMStUW7i8OD4l38KnASSO/dboLt+MtVNKepdpCnnZ3Sblc3mtbcB3TwfVL2caV+uX4oolT4UC1GyqUJT9AaA/rLOq8S5l1bzME9kjInDk46QZE3jCIiarINAncF2fIus42Dd3EAOiXYt+pWjxQdB04t89/1O/w1cDnyilFU=',
-    channelSecret: 'c762f59b6a6d76f00b8fca87859c11dc'
+    channelAccessToken: 'PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=',
+    channelSecret: '537035c20850a60a1da7b96ad8f791bf'
 }
 
 const client = new Client(config)
