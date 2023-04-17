@@ -37,7 +37,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
     let text = 'กำลังปั่นงานอยู่นะ!'
 
-    if (event.message.type !== 'text') {
+    if (!['text', 'image'].includes(event.message.type)) {
 
         text = `ส่ง ${event.message.type} มาหรอ เรายังไม่ทำหรอกนะ.`
 
@@ -51,6 +51,19 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
         await client.pushMessage(event.source.userId || '', action)
     }
 
+    if (event.message.type === 'image') {
+
+        const actionList: FlexMessage[] = []
+
+        const garbage = garbageList.find(element => (element.name_en === 'glass'))
+
+        const action = garbage?.massage as FlexMessage[]
+
+        actionList.push(...action)
+
+        await client.pushMessage(event.source.userId || '', actionList)
+    }
+
     if (event.message.type === 'text') {
 
         const actionList: FlexMessage[] = []
@@ -61,10 +74,10 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
         for (const word of message.split(',')) {
 
-            const garbage = garbageList.find(element => (element.name === word.trim()|| element.name_en === word.trim()))
+            const garbage = garbageList.find(element => (element.name_th === word.trim() || element.name_en === word.trim()))
 
             const action = garbage?.massage as FlexMessage[]
-            
+
             actionList.push(...action)
         }
 

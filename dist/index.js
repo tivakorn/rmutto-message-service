@@ -32,7 +32,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
     if (event.type !== 'message')
         return;
     let text = 'กำลังปั่นงานอยู่นะ!';
-    if (event.message.type !== 'text') {
+    if (!['text', 'image'].includes(event.message.type)) {
         text = `ส่ง ${event.message.type} มาหรอ เรายังไม่ทำหรอกนะ.`;
         const action = [
             {
@@ -42,12 +42,19 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         ];
         yield client.pushMessage(event.source.userId || '', action);
     }
+    if (event.message.type === 'image') {
+        const actionList = [];
+        const garbage = garbage_json_1.default.find(element => (element.name_en === 'glass'));
+        const action = garbage === null || garbage === void 0 ? void 0 : garbage.massage;
+        actionList.push(...action);
+        yield client.pushMessage(event.source.userId || '', actionList);
+    }
     if (event.message.type === 'text') {
         const actionList = [];
         const message = event.message.text;
         message.split(',');
         for (const word of message.split(',')) {
-            const garbage = garbage_json_1.default.find(element => (element.name === word.trim() || element.name_en === word.trim()));
+            const garbage = garbage_json_1.default.find(element => (element.name_th === word.trim() || element.name_en === word.trim()));
             const action = garbage === null || garbage === void 0 ? void 0 : garbage.massage;
             actionList.push(...action);
         }
