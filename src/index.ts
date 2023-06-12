@@ -154,7 +154,7 @@ const garbagePrediction = async (image: any) => {
     }
     catch (error) {
 
-        return 'เกิดข้อผิดพลาดกรุณาลองใหม่อีกครั้ง'
+        return error
     }
 }
 

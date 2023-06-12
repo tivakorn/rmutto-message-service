@@ -108,7 +108,7 @@ const garbagePrediction = (image) => __awaiter(void 0, void 0, void 0, function*
         return result.data;
     }
     catch (error) {
-        return 'เกิดข้อผิดพลาดกรุณาลองใหม่อีกครั้ง';
+        return error;
     }
 });
 app.post('/webhook', (0, bot_sdk_1.middleware)(middlewareConfig), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
