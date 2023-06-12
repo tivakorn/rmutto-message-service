@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // Dependencies
 const express_1 = __importDefault(require("express"));
 const bot_sdk_1 = require("@line/bot-sdk");
+const axios_1 = __importDefault(require("axios"));
 const garbage_json_1 = __importDefault(require("./static/garbage.json"));
 const port = process.env.PORT || 8080;
 const config = {
@@ -43,11 +44,20 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         yield client.pushMessage(event.source.userId || '', action);
     }
     if (event.message.type === 'image') {
-        const actionList = [];
-        const garbage = garbage_json_1.default.find(element => (element.name_en === 'plastic'));
-        const action = garbage === null || garbage === void 0 ? void 0 : garbage.massage;
-        actionList.push(...action);
-        yield client.pushMessage(event.source.userId || '', actionList);
+        const content = yield client.getMessageContent(event.message.id);
+        const result = yield garbagePrediction(content);
+        // const actionList: FlexMessage[] = []
+        // const garbage = garbageList.find(element => (element.name_en === 'plastic'))
+        // const action = garbage?.massage as FlexMessage[]
+        // actionList.push(...action)
+        // await client.pushMessage(event.source.userId || '', actionList)
+        const action = [
+            {
+                type: 'text',
+                text: result.toString()
+            }
+        ];
+        yield client.pushMessage(event.source.userId || '', action);
     }
     if (event.message.type === 'text') {
         const actionList = [];
@@ -57,6 +67,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
             const garbage = garbage_json_1.default.find(element => (element.name_th === word.trim() || element.name_en === word.trim()));
             const action = garbage === null || garbage === void 0 ? void 0 : garbage.massage;
             actionList.push(...action);
+            console.log('test');
         }
         yield client.pushMessage(event.source.userId || '', actionList);
         // switch (message) {
@@ -88,6 +99,17 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
     //     writer.on('error', reject)
     // })
     // await client.pushMessage(event.source.userId || '', action)
+});
+const garbagePrediction = (image) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const data = new FormData();
+        data.append('image_file', image);
+        const result = yield axios_1.default.post('http://devrmutto.pythonanywhere.com/p', data);
+        return result.data;
+    }
+    catch (error) {
+        return 'เกิดข้อผิดพลาดกรุณาลองใหม่อีกครั้ง';
+    }
 });
 app.post('/webhook', (0, bot_sdk_1.middleware)(middlewareConfig), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const events = req.body.events;

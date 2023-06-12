@@ -11,6 +11,7 @@ import {
     TextMessage
 } from '@line/bot-sdk'
 
+import axios from 'axios'
 import garbageList from './static/garbage.json'
 
 const port = process.env.PORT || 8080
@@ -53,15 +54,28 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
     if (event.message.type === 'image') {
 
-        const actionList: FlexMessage[] = []
+        const content = await client.getMessageContent(event.message.id)
 
-        const garbage = garbageList.find(element => (element.name_en === 'plastic'))
+        const result = await garbagePrediction(content)
 
-        const action = garbage?.massage as FlexMessage[]
+        // const actionList: FlexMessage[] = []
 
-        actionList.push(...action)
+        // const garbage = garbageList.find(element => (element.name_en === 'plastic'))
 
-        await client.pushMessage(event.source.userId || '', actionList)
+        // const action = garbage?.massage as FlexMessage[]
+
+        // actionList.push(...action)
+
+        // await client.pushMessage(event.source.userId || '', actionList)
+
+        const action = [
+            {
+                type: 'text',
+                text: result.toString()
+            }
+        ] as TextMessage[]
+
+        await client.pushMessage(event.source.userId || '', action)
     }
 
     if (event.message.type === 'text') {
@@ -79,6 +93,8 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
             const action = garbage?.massage as FlexMessage[]
 
             actionList.push(...action)
+
+            console.log('test')
         }
 
         await client.pushMessage(event.source.userId || '', actionList)
@@ -122,6 +138,24 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     // })
 
     // await client.pushMessage(event.source.userId || '', action)
+}
+
+const garbagePrediction = async (image: any) => {
+
+    try {
+
+        const data = new FormData()
+
+        data.append('image_file', image)
+
+        const result = await axios.post('http://devrmutto.pythonanywhere.com/p', data)
+
+        return result.data
+    }
+    catch (error) {
+
+        return 'เกิดข้อผิดพลาดกรุณาลองใหม่อีกครั้ง'
+    }
 }
 
 app.post('/webhook', middleware(middlewareConfig), async (req: Request, res: Response) => {
