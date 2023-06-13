@@ -47,6 +47,156 @@
     },
     {
         "id": 2,
+        "name_th": "เหล็ก",
+        "name_en": "metal",
+        "trash_type": "recycle",
+        "category": "",
+        "massage": [
+            {
+                "type": "flex",
+                "altText": "เหล็ก (metal)",
+                "contents": {
+                    "type": "carousel",
+                    "contents": [
+                        {
+                            "type": "bubble",
+                            "hero": {
+                                "type": "image",
+                                "size": "full",
+                                "aspectRatio": "20:13",
+                                "aspectMode": "cover",
+                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
+                            },
+                            "body": {
+                                "type": "box",
+                                "layout": "vertical",
+                                "spacing": "sm",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "เหล็ก (metal)",
+                                        "wrap": true,
+                                        "weight": "bold",
+                                        "size": "xl"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "text",
+                "text": "ขยะรีไซเคิล คือ ขยะที่สามารถนำกลับมารีไซเคิล หรือแปรรูปใหม่ได้ เช่น"
+            },
+            {
+                "type": "text",
+                "text": "เหล็ก (metal) ควรกำจัดโดยนำกลับเข้าสู่กระบวนการรีไซเคิล"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name_th": "กระดาษ",
+        "name_en": "paper",
+        "trash_type": "recycle",
+        "category": "",
+        "massage": [
+            {
+                "type": "flex",
+                "altText": "กระดาษ (paper)",
+                "contents": {
+                    "type": "carousel",
+                    "contents": [
+                        {
+                            "type": "bubble",
+                            "hero": {
+                                "type": "image",
+                                "size": "full",
+                                "aspectRatio": "20:13",
+                                "aspectMode": "cover",
+                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
+                            },
+                            "body": {
+                                "type": "box",
+                                "layout": "vertical",
+                                "spacing": "sm",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "กระดาษ (paper)",
+                                        "wrap": true,
+                                        "weight": "bold",
+                                        "size": "xl"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "text",
+                "text": "ขยะรีไซเคิล คือ ขยะที่สามารถนำกลับมารีไซเคิล หรือแปรรูปใหม่ได้ เช่น"
+            },
+            {
+                "type": "text",
+                "text": "กระดาษ (paper) ควรกำจัดโดยการใช้ซ้ำ เพิ่มมูลค่าด้วยการ Upcycling หรือ นำกลับเข้าสู่กระบวนการรีไซเคิล"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name_th": "กระดาษลัง",
+        "name_en": "cardboard",
+        "trash_type": "recycle",
+        "category": "",
+        "massage": [
+            {
+                "type": "flex",
+                "altText": "กระดาษลัง (cardboard)",
+                "contents": {
+                    "type": "carousel",
+                    "contents": [
+                        {
+                            "type": "bubble",
+                            "hero": {
+                                "type": "image",
+                                "size": "full",
+                                "aspectRatio": "20:13",
+                                "aspectMode": "cover",
+                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
+                            },
+                            "body": {
+                                "type": "box",
+                                "layout": "vertical",
+                                "spacing": "sm",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "กระดาษลัง (cardboard)",
+                                        "wrap": true,
+                                        "weight": "bold",
+                                        "size": "xl"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "text",
+                "text": "ขยะรีไซเคิล คือ ขยะที่สามารถนำกลับมารีไซเคิล หรือแปรรูปใหม่ได้ เช่น"
+            },
+            {
+                "type": "text",
+                "text": "กระดาษลัง (cardboard) ควรกำจัดโดยการใช้ซ้ำ เพิ่มมูลค่าด้วยการ Upcycling หรือ นำกลับเข้าสู่กระบวนการรีไซเคิล"
+            }
+        ]
+    },
+    {
+        "id": 5,
         "name_th": "แก้ว",
         "name_en": "glass",
         "trash_type": "recycle",
@@ -54,7 +204,7 @@
         "massage": [
             {
                 "type": "flex",
-                "altText": "วิธีการแยกขยะ : กระดาษกล่อง",
+                "altText": "แก้ว (glass)",
                 "contents": {
                     "type": "carousel",
                     "contents": [
@@ -74,55 +224,7 @@
                                 "contents": [
                                     {
                                         "type": "text",
-                                        "text": "กระดาษกล่อง",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "bubble",
-                            "hero": {
-                                "type": "image",
-                                "size": "full",
-                                "aspectRatio": "20:13",
-                                "aspectMode": "cover",
-                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8963.png?alt=media&token=99057b09-5313-426f-8bd9-0d2fbad498a4"
-                            },
-                            "body": {
-                                "type": "box",
-                                "layout": "vertical",
-                                "spacing": "sm",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "เก็บรวบรวม พับ มัดเป็นตั้ง",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "bubble",
-                            "hero": {
-                                "type": "image",
-                                "size": "full",
-                                "aspectRatio": "20:13",
-                                "aspectMode": "cover",
-                                "url": "https://chinterstore.com/wp-content/uploads/2020/01/F-0010-1-02.jpg"
-                            },
-                            "body": {
-                                "type": "box",
-                                "layout": "vertical",
-                                "spacing": "sm",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "ใส่ถังขยะรีไซเคิล (สีเหลือง)",
+                                        "text": "แก้ว (glass)",
                                         "wrap": true,
                                         "weight": "bold",
                                         "size": "xl"
@@ -132,191 +234,19 @@
                         }
                     ]
                 }
-            }
-        ]
-    },
-    {
-        "id": 3,
-        "name_th": "โลหะ",
-        "name_en": "metal",
-        "trash_type": "",
-        "category": "",
-        "massage": [
+            },
             {
-                "type": "flex",
-                "altText": "วิธีการแยกขยะ : กระดาษกล่อง",
-                "contents": {
-                    "type": "carousel",
-                    "contents": [
-                        {
-                            "type": "bubble",
-                            "hero": {
-                                "type": "image",
-                                "size": "full",
-                                "aspectRatio": "20:13",
-                                "aspectMode": "cover",
-                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
-                            },
-                            "body": {
-                                "type": "box",
-                                "layout": "vertical",
-                                "spacing": "sm",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "กระดาษกล่อง",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "bubble",
-                            "hero": {
-                                "type": "image",
-                                "size": "full",
-                                "aspectRatio": "20:13",
-                                "aspectMode": "cover",
-                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8963.png?alt=media&token=99057b09-5313-426f-8bd9-0d2fbad498a4"
-                            },
-                            "body": {
-                                "type": "box",
-                                "layout": "vertical",
-                                "spacing": "sm",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "เก็บรวบรวม พับ มัดเป็นตั้ง",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "bubble",
-                            "hero": {
-                                "type": "image",
-                                "size": "full",
-                                "aspectRatio": "20:13",
-                                "aspectMode": "cover",
-                                "url": "https://chinterstore.com/wp-content/uploads/2020/01/F-0010-1-02.jpg"
-                            },
-                            "body": {
-                                "type": "box",
-                                "layout": "vertical",
-                                "spacing": "sm",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "ใส่ถังขยะรีไซเคิล (สีเหลือง)",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    {
-        "id": 4,
-        "name_th": "ขวด PET ใส",
-        "name_en": "paper",
-        "trash_type": "recycle",
-        "category": "",
-        "massage": [
+                "type": "text",
+                "text": "ขยะรีไซเคิล คือ ขยะที่สามารถนำกลับมารีไซเคิล หรือแปรรูปใหม่ได้ เช่น"
+            },
             {
-                "type": "flex",
-                "altText": "วิธีการแยกขยะ : กระดาษกล่อง",
-                "contents": {
-                    "type": "carousel",
-                    "contents": [
-                        {
-                            "type": "bubble",
-                            "hero": {
-                                "type": "image",
-                                "size": "full",
-                                "aspectRatio": "20:13",
-                                "aspectMode": "cover",
-                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
-                            },
-                            "body": {
-                                "type": "box",
-                                "layout": "vertical",
-                                "spacing": "sm",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "กระดาษกล่อง",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "bubble",
-                            "hero": {
-                                "type": "image",
-                                "size": "full",
-                                "aspectRatio": "20:13",
-                                "aspectMode": "cover",
-                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8963.png?alt=media&token=99057b09-5313-426f-8bd9-0d2fbad498a4"
-                            },
-                            "body": {
-                                "type": "box",
-                                "layout": "vertical",
-                                "spacing": "sm",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "เก็บรวบรวม พับ มัดเป็นตั้ง",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "bubble",
-                            "hero": {
-                                "type": "image",
-                                "size": "full",
-                                "aspectRatio": "20:13",
-                                "aspectMode": "cover",
-                                "url": "https://chinterstore.com/wp-content/uploads/2020/01/F-0010-1-02.jpg"
-                            },
-                            "body": {
-                                "type": "box",
-                                "layout": "vertical",
-                                "spacing": "sm",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "ใส่ถังขยะรีไซเคิล (สีเหลือง)",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                }
+                "type": "text",
+                "text": "แก้ว (glass) ควรกำจัดโดยการใช้ซ้ำ เพิ่มมูลค่าด้วยการ Upcycling หรือ นำกลับเข้าสู่กระบวนการรีไซเคิล"
             }
         ]
     },
     {
-        "id": 5,
+        "id": 6,
         "name_th": "พลาสติก",
         "name_en": "plastic",
         "trash_type": "recycle",
@@ -324,145 +254,7 @@
         "massage": [
             {
                 "type": "flex",
-                "altText": "วิธีการแยกขยะ : พลาสติก",
-                "contents": {
-                    "type": "carousel",
-                    "contents": [
-                        {
-                            "type": "bubble",
-                            "hero": {
-                                "type": "image",
-                                "size": "full",
-                                "aspectRatio": "20:13",
-                                "aspectMode": "cover",
-                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/gettyimages-163310627.webp?alt=media&token=6c8a1e1b-817b-495a-b4b4-9a3ffe26379c"
-                            },
-                            "body": {
-                                "type": "box",
-                                "layout": "vertical",
-                                "spacing": "sm",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "พลาสติก",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "bubble",
-                            "hero": {
-                                "type": "image",
-                                "size": "full",
-                                "aspectRatio": "20:13",
-                                "aspectMode": "cover",
-                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8986.png?alt=media&token=b7d96651-6c8a-484f-b54d-054abde9ea93"
-                            },
-                            "body": {
-                                "type": "box",
-                                "layout": "vertical",
-                                "spacing": "sm",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "วิธีสังเกต",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "bubble",
-                            "hero": {
-                                "type": "image",
-                                "size": "full",
-                                "aspectRatio": "20:13",
-                                "aspectMode": "cover",
-                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8987.png?alt=media&token=24f1ebde-df17-47fc-9648-fe563213e958"
-                            },
-                            "body": {
-                                "type": "box",
-                                "layout": "vertical",
-                                "spacing": "sm",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "วิธีการแยก",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "bubble",
-                            "hero": {
-                                "type": "image",
-                                "size": "full",
-                                "aspectRatio": "20:13",
-                                "aspectMode": "cover",
-                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8988.png?alt=media&token=c410988d-455a-4f30-8eb0-6a36556d3e24"
-                            },
-                            "body": {
-                                "type": "box",
-                                "layout": "vertical",
-                                "spacing": "sm",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "ข้อห้าม",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "bubble",
-                            "hero": {
-                                "type": "image",
-                                "size": "full",
-                                "aspectRatio": "20:13",
-                                "aspectMode": "cover",
-                                "url": "https://chinterstore.com/wp-content/uploads/2020/01/F-0010-1-02.jpg"
-                            },
-                            "body": {
-                                "type": "box",
-                                "layout": "vertical",
-                                "spacing": "sm",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "ใส่ถังขยะรีไซเคิล (สีเหลือง)",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    {
-        "id": 6,
-        "name_th": "ขยะทั่วไป",
-        "name_en": "trash",
-        "trash_type": "general",
-        "category": "",
-        "massage": [
-            {
-                "type": "flex",
-                "altText": "วิธีการแยกขยะ : กระดาษกล่อง",
+                "altText": "พลาสติก (plastic)",
                 "contents": {
                     "type": "carousel",
                     "contents": [
@@ -482,55 +274,7 @@
                                 "contents": [
                                     {
                                         "type": "text",
-                                        "text": "กระดาษกล่อง",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "bubble",
-                            "hero": {
-                                "type": "image",
-                                "size": "full",
-                                "aspectRatio": "20:13",
-                                "aspectMode": "cover",
-                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8963.png?alt=media&token=99057b09-5313-426f-8bd9-0d2fbad498a4"
-                            },
-                            "body": {
-                                "type": "box",
-                                "layout": "vertical",
-                                "spacing": "sm",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "เก็บรวบรวม พับ มัดเป็นตั้ง",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "bubble",
-                            "hero": {
-                                "type": "image",
-                                "size": "full",
-                                "aspectRatio": "20:13",
-                                "aspectMode": "cover",
-                                "url": "https://chinterstore.com/wp-content/uploads/2020/01/F-0010-1-02.jpg"
-                            },
-                            "body": {
-                                "type": "box",
-                                "layout": "vertical",
-                                "spacing": "sm",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "ใส่ถังขยะรีไซเคิล (สีเหลือง)",
+                                        "text": "พลาสติก (plastic)",
                                         "wrap": true,
                                         "weight": "bold",
                                         "size": "xl"
@@ -540,6 +284,106 @@
                         }
                     ]
                 }
+            },
+            {
+                "type": "text",
+                "text": "ขยะรีไซเคิล คือ ขยะที่สามารถนำกลับมารีไซเคิล หรือแปรรูปใหม่ได้ เช่น"
+            },
+            {
+                "type": "text",
+                "text": "พลาสติก (plastic) ควรกำจัดโดยการใช้ซ้ำ เพิ่มมูลค่าด้วยการ Upcycling หรือ นำกลับเข้าสู่กระบวนการรีไซเคิล"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name_th": "ขยะอันตราย",
+        "name_en": "hazard",
+        "trash_type": "recycle",
+        "category": "",
+        "massage": [
+            {
+                "type": "flex",
+                "altText": "พลาสติก (plastic)",
+                "contents": {
+                    "type": "carousel",
+                    "contents": [
+                        {
+                            "type": "bubble",
+                            "hero": {
+                                "type": "ขยะอันตราย (hazard)",
+                                "size": "full",
+                                "aspectRatio": "20:13",
+                                "aspectMode": "cover",
+                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
+                            },
+                            "body": {
+                                "type": "box",
+                                "layout": "vertical",
+                                "spacing": "sm",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "ขยะอันตราย (hazard)",
+                                        "wrap": true,
+                                        "weight": "bold",
+                                        "size": "xl"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "text",
+                "text": "ขยะอันตราย (hazard) คือ วัสดุหรือผลิตภัณฑ์ที่ไม่ใช้แล้วมีองค์ประกอบของสารที่เป็นอันตรายที่เป็นสารพิษ สารไวไฟ สารกัมมันตรังสี สารเคมี สารไวไฟ สารที่กัดกร่อนได้ หรือสารที่ก่อโรค เช่น ขวดน้ำยาล้างห้องน้ำ สารฆ่าแมลง ภาชนะบรรจุน้ำมัน หลอดฟลูออเรสเซนต์ แบตเตอรี่ ควรลดปริมาณการสร้างขยะ การกำจัดควรแยกทิ้งจากขยะอื่น ๆ และทิ้งในจุดที่กำหนดเท่านั้นเพื่อนำไปกำจัดอย่างถูกวิธี"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "name_th": "ขยะทั่วไป",
+        "name_en": "trash",
+        "trash_type": "recycle",
+        "category": "",
+        "massage": [
+            {
+                "type": "flex",
+                "altText": "พลาสติก (plastic)",
+                "contents": {
+                    "type": "carousel",
+                    "contents": [
+                        {
+                            "type": "bubble",
+                            "hero": {
+                                "type": "ขยะทั่วไป (trash)",
+                                "size": "full",
+                                "aspectRatio": "20:13",
+                                "aspectMode": "cover",
+                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
+                            },
+                            "body": {
+                                "type": "box",
+                                "layout": "vertical",
+                                "spacing": "sm",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "ขยะทั่วไป (trash)",
+                                        "wrap": true,
+                                        "weight": "bold",
+                                        "size": "xl"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "text",
+                "text": "ขยะทั่วไป (trash) คือ ขยะที่ไม่สามารถรีไซเคิลได้ ไม่ย่อยสลาย และไม่มีสารอันตรายปนเปื้อน เช่น เปลือกลูกอม ซองขนม โฟม หลอด เป็นต้น ควรลดปริมาณการสร้างขยะ สามารถกำจัดโดยนำไปผลิตเชื้อเพลิงแบบ RDF นำไปใช้ซ้ำ เพิ่มมูลค่าด้วยการ Upcycling ส่วนที่เหลือนำไปฝังกลบแบบถูกวิธีที่หลุมฝังกลบหรือเตาเผาขยะ"
             }
         ]
     }
