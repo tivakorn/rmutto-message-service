@@ -146,7 +146,7 @@ const garbagePrediction = async (image: any) => {
 
         const body = new FormData()
 
-        // body.append('inputs_file', image)
+        body.append('input_file', image)
 
         const result = await axios.post('http://devrmutto.pythonanywhere.com/p')
 

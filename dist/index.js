@@ -103,7 +103,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
 const garbagePrediction = (image) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const body = new FormData();
-        // body.append('inputs_file', image)
+        body.append('input_file', image);
         const result = yield axios_1.default.post('http://devrmutto.pythonanywhere.com/p');
         return result.data;
     }
