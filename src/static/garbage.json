@@ -1,14 +1,14 @@
 [
     {
         "id": 1,
-        "name_th": "กระดาษกล่อง",
-        "name_en": "cardboard",
+        "name_th": "ขยะอินทรีย์",
+        "name_en": "organic",
         "trash_type": "recycle",
         "category": "",
         "massage": [
             {
                 "type": "flex",
-                "altText": "วิธีการแยกขยะ : กระดาษกล่อง",
+                "altText": "ขยะอินทรีย์ (organic)",
                 "contents": {
                     "type": "carousel",
                     "contents": [
@@ -28,55 +28,7 @@
                                 "contents": [
                                     {
                                         "type": "text",
-                                        "text": "กระดาษกล่อง",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "bubble",
-                            "hero": {
-                                "type": "image",
-                                "size": "full",
-                                "aspectRatio": "20:13",
-                                "aspectMode": "cover",
-                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8963.png?alt=media&token=99057b09-5313-426f-8bd9-0d2fbad498a4"
-                            },
-                            "body": {
-                                "type": "box",
-                                "layout": "vertical",
-                                "spacing": "sm",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "เก็บรวบรวม พับ มัดเป็นตั้ง",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "bubble",
-                            "hero": {
-                                "type": "image",
-                                "size": "full",
-                                "aspectRatio": "20:13",
-                                "aspectMode": "cover",
-                                "url": "https://chinterstore.com/wp-content/uploads/2020/01/F-0010-1-02.jpg"
-                            },
-                            "body": {
-                                "type": "box",
-                                "layout": "vertical",
-                                "spacing": "sm",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "ใส่ถังขยะรีไซเคิล (สีเหลือง)",
+                                        "text": "ขยะอินทรีย์ (organic)",
                                         "wrap": true,
                                         "weight": "bold",
                                         "size": "xl"
@@ -86,6 +38,10 @@
                         }
                     ]
                 }
+            },
+            {
+                "type": "text",
+                "text": "ขยะอินทรีย์ (organic) คือ ขยะที่สามารถย่อยสลาย หรือหมักทำปุ๋ยได้ เช่น เศษอาหาร ใบไม้ เปลือกผลไม้ ควรกำจัดโดยการทำปุ๋ยหมัก น้ำหมักชีวภาพ ปุ๋ยมูลไส้เดือน เป็นอาหารสัตว์ ผลิตพลังงานชีวภาพ"
             }
         ]
     },
