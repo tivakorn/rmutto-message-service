@@ -287,7 +287,7 @@
                                                         "contents": [],
                                                         "size": "xl",
                                                         "wrap": true,
-                                                        "text": "กระดาษ (paper)",
+                                                        "text": "กระดาษลัง (cardboard)",
                                                         "color": "#ffffff",
                                                         "weight": "bold"
                                                     }
@@ -439,28 +439,61 @@
                             "body": {
                                 "type": "box",
                                 "layout": "vertical",
-                                "spacing": "sm",
                                 "contents": [
                                     {
-                                        "type": "text",
-                                        "text": "พลาสติก (plastic)",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "box",
+                                                "layout": "vertical",
+                                                "contents": [
+                                                    {
+                                                        "type": "text",
+                                                        "contents": [],
+                                                        "size": "xl",
+                                                        "wrap": true,
+                                                        "text": "พลาสติก (plastic)",
+                                                        "color": "#ffffff",
+                                                        "weight": "bold"
+                                                    }
+                                                ],
+                                                "spacing": "sm"
+                                            },
+                                            {
+                                                "type": "box",
+                                                "layout": "vertical",
+                                                "contents": [
+                                                    {
+                                                        "type": "box",
+                                                        "layout": "vertical",
+                                                        "contents": [
+                                                            {
+                                                                "type": "text",
+                                                                "contents": [],
+                                                                "size": "sm",
+                                                                "wrap": true,
+                                                                "margin": "lg",
+                                                                "color": "#ffffffde",
+                                                                "text": "ขยะที่สามารถนำกลับมารีไซเคิล หรือแปรรูปใหม่ได้ ควรกำจัดโดยการใช้ซ้ำ เพิ่มมูลค่าด้วยการ Upcycling หรือ นำกลับเข้าสู่กระบวนการรีไซเคิล"
+                                                            }
+                                                        ]
+                                                    }
+                                                ],
+                                                "paddingAll": "13px",
+                                                "backgroundColor": "#ffffff1A",
+                                                "cornerRadius": "2px",
+                                                "margin": "xl"
+                                            }
+                                        ]
                                     }
-                                ]
+                                ],
+                                "paddingAll": "20px",
+                                "backgroundColor": "#464F69"
                             }
                         }
                     ]
                 }
-            },
-            {
-                "type": "text",
-                "text": "ขยะรีไซเคิล คือ ขยะที่สามารถนำกลับมารีไซเคิล หรือแปรรูปใหม่ได้ เช่น"
-            },
-            {
-                "type": "text",
-                "text": "พลาสติก (plastic) ควรกำจัดโดยการใช้ซ้ำ เพิ่มมูลค่าด้วยการ Upcycling หรือ นำกลับเข้าสู่กระบวนการรีไซเคิล"
             }
         ]
     },
