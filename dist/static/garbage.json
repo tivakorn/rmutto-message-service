@@ -24,16 +24,63 @@
                             "body": {
                                 "type": "box",
                                 "layout": "vertical",
-                                "spacing": "sm",
                                 "contents": [
                                     {
-                                        "type": "text",
-                                        "text": "ขยะอินทรีย์ (organic)",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "box",
+                                                "layout": "vertical",
+                                                "contents": [
+                                                    {
+                                                        "type": "text",
+                                                        "contents": [],
+                                                        "size": "xl",
+                                                        "wrap": true,
+                                                        "text": "Cony Residence",
+                                                        "color": "#ffffff",
+                                                        "weight": "bold"
+                                                    },
+                                                    {
+                                                        "type": "text",
+                                                        "text": "3 Bedrooms, ¥35,000",
+                                                        "color": "#ffffffcc",
+                                                        "size": "sm"
+                                                    }
+                                                ],
+                                                "spacing": "sm"
+                                            },
+                                            {
+                                                "type": "box",
+                                                "layout": "vertical",
+                                                "contents": [
+                                                    {
+                                                        "type": "box",
+                                                        "layout": "vertical",
+                                                        "contents": [
+                                                            {
+                                                                "type": "text",
+                                                                "contents": [],
+                                                                "size": "sm",
+                                                                "wrap": true,
+                                                                "margin": "lg",
+                                                                "color": "#ffffffde",
+                                                                "text": "Private Pool, Delivery box, Floor heating, Private Cinema"
+                                                            }
+                                                        ]
+                                                    }
+                                                ],
+                                                "paddingAll": "13px",
+                                                "backgroundColor": "#ffffff1A",
+                                                "cornerRadius": "2px",
+                                                "margin": "xl"
+                                            }
+                                        ]
                                     }
-                                ]
+                                ],
+                                "paddingAll": "20px",
+                                "backgroundColor": "#464F69"
                             }
                         }
                     ]
