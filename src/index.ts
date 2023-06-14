@@ -13,6 +13,7 @@ import {
 
 import axios from 'axios'
 import garbageList from './static/garbage.json'
+import addedValueContent from './static/added_value.json'
 
 const port = process.env.PORT || 8080
 
@@ -105,6 +106,17 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
             await client.pushMessage(event.source.userId || '', flex as FlexMessage)
 
         } else if (message === 'การเพิ่มมูลค่าจากขยะใช้แล้ว') {
+
+            const flex = {
+                "type": "flex",
+                "altText": "การเพิ่มมูลค่าจากขยะใช้แล้ว",
+                "contents": {
+                    "type": "carousel",
+                    "contents": addedValueContent
+                }
+            }
+
+            await client.pushMessage(event.source.userId || '', flex as FlexMessage)
 
         } else {
 

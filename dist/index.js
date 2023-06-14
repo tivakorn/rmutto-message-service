@@ -17,6 +17,7 @@ const express_1 = __importDefault(require("express"));
 const bot_sdk_1 = require("@line/bot-sdk");
 const axios_1 = __importDefault(require("axios"));
 const garbage_json_1 = __importDefault(require("./static/garbage.json"));
+const added_value_json_1 = __importDefault(require("./static/added_value.json"));
 const port = process.env.PORT || 8080;
 const config = {
     channelAccessToken: 'PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=',
@@ -78,6 +79,15 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
             yield client.pushMessage(event.source.userId || '', flex);
         }
         else if (message === 'การเพิ่มมูลค่าจากขยะใช้แล้ว') {
+            const flex = {
+                "type": "flex",
+                "altText": "การเพิ่มมูลค่าจากขยะใช้แล้ว",
+                "contents": {
+                    "type": "carousel",
+                    "contents": added_value_json_1.default
+                }
+            };
+            yield client.pushMessage(event.source.userId || '', flex);
         }
         else {
             const contents = [];

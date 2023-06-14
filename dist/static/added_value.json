@@ -1,0 +1,82 @@
+[
+    {
+        "type": "bubble",
+        "hero": {
+            "type": "image",
+            "size": "full",
+            "aspectRatio": "20:13",
+            "aspectMode": "cover",
+            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
+        },
+        "paddingAll": "0px",
+        "action": {
+            "type": "uri",
+            "label": "action",
+            "uri": "https://www.youtube.com/watch?v=vRQUbk53MA0"
+        }
+    },
+    {
+        "type": "bubble",
+        "hero": {
+            "type": "image",
+            "size": "full",
+            "aspectRatio": "20:13",
+            "aspectMode": "cover",
+            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
+        },
+        "paddingAll": "0px",
+        "action": {
+            "type": "uri",
+            "label": "action",
+            "uri": "https://www.youtube.com/watch?v=vRQUbk53MA0"
+        }
+    },
+    {
+        "type": "bubble",
+        "hero": {
+            "type": "image",
+            "size": "full",
+            "aspectRatio": "20:13",
+            "aspectMode": "cover",
+            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
+        },
+        "paddingAll": "0px",
+        "action": {
+            "type": "uri",
+            "label": "action",
+            "uri": "https://www.youtube.com/watch?v=vRQUbk53MA0"
+        }
+    },
+    {
+        "type": "bubble",
+        "hero": {
+            "type": "image",
+            "size": "full",
+            "aspectRatio": "20:13",
+            "aspectMode": "cover",
+            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
+        },
+        "paddingAll": "0px",
+        "action": {
+            "type": "uri",
+            "label": "action",
+            "uri": "https://www.youtube.com/watch?v=vRQUbk53MA0"
+        }
+    },
+    {
+        "type": "bubble",
+        "hero": {
+            "type": "image",
+            "size": "full",
+            "aspectRatio": "20:13",
+            "aspectMode": "cover",
+            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
+        },
+        "paddingAll": "0px",
+        "action": {
+            "type": "uri",
+            "label": "action",
+            "uri": "https://www.youtube.com/watch?v=vRQUbk53MA0"
+        }
+    }
+]
