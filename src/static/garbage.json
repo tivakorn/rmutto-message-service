@@ -7,7 +7,7 @@
         "category": "",
         "massage": [
             {
-                "type": "flex",
+                "type": "bubble",
                 "altText": "ขยะอินทรีย์ (organic)",
                 "contents": {
                     "type": "box",
