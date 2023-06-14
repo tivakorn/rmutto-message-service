@@ -16,47 +16,6 @@
                     "type": "box",
                     "layout": "vertical",
                     "contents": [
-                        {
-                            "type": "box",
-                            "layout": "vertical",
-                            "contents": [
-                                {
-                                    "type": "text",
-                                    "contents": [],
-                                    "size": "xl",
-                                    "wrap": true,
-                                    "text": "ขยะอินทรีย์ (organic)",
-                                    "color": "#ffffff",
-                                    "weight": "bold"
-                                }
-                            ],
-                            "spacing": "sm"
-                        },
-                        {
-                            "type": "box",
-                            "layout": "vertical",
-                            "contents": [
-                                {
-                                    "type": "box",
-                                    "layout": "vertical",
-                                    "contents": [
-                                        {
-                                            "type": "text",
-                                            "contents": [],
-                                            "size": "sm",
-                                            "wrap": true,
-                                            "margin": "lg",
-                                            "color": "#ffffffde",
-                                            "text": "ขยะที่สามารถย่อยสลาย หรือหมักทำปุ๋ยได้ เช่น เศษอาหาร ใบไม้ เปลือกผลไม้ ควรกำจัดโดยการทำปุ๋ยหมัก น้ำหมักชีวภาพ ปุ๋ยมูลไส้เดือน เป็นอาหารสัตว์ ผลิตพลังงานชีวภาพ"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "paddingAll": "13px",
-                            "backgroundColor": "#ffffff1A",
-                            "cornerRadius": "2px",
-                            "margin": "xl"
-                        }
                     ]
                 }
             ],

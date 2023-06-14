@@ -107,27 +107,6 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
         } else if (message === 'การเพิ่มมูลค่าจากขยะใช้แล้ว') {
 
-
-            const contents = []
-
-            for (const garbage of garbageList) {
-
-                const action = garbage?.massage[0].contents.contents
-
-                contents.push(...action)
-            }
-
-            const flexa = {
-                "type": "flex",
-                "altText": "รู้จักกับขยะประเภทต่างๆ",
-                "contents": {
-                    "type": "carousel",
-                    "contents": contents
-                }
-            }
-
-            await client.pushMessage(event.source.userId || '', flexa as FlexMessage)
-
             const flex = {
                 "type": "flex",
                 "altText": "การเพิ่มมูลค่าจากขยะใช้แล้ว",
