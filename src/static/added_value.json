@@ -8,19 +8,6 @@
             "aspectMode": "cover",
             "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
         },
-        "body": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-                {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                    ]
-                }
-            ],
-            "paddingAll": "20px"
-        },
         "action": {
             "type": "uri",
             "label": "action",
