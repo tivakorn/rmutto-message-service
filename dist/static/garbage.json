@@ -496,5 +496,134 @@
                 }
             }
         ]
+    },
+    {
+        "id": 7,
+        "name_th": "ขยะอันตราย",
+        "name_en": "hazard",
+        "trash_type": "recycle",
+        "category": "",
+        "massage": [
+            {
+                "type": "flex",
+                "altText": "ขยะอันตราย (hazard)",
+                "contents": {
+                    "type": "carousel",
+                    "contents": [
+                        {
+                            "type": "bubble",
+                            "hero": {
+                                "type": "image",
+                                "size": "full",
+                                "aspectRatio": "20:13",
+                                "aspectMode": "cover",
+                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
+                            },
+                            "body": {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "box",
+                                                "layout": "vertical",
+                                                "contents": [
+                                                    {
+                                                        "type": "text",
+                                                        "contents": [],
+                                                        "size": "xl",
+                                                        "wrap": true,
+                                                        "text": "ขยะอันตราย (hazard)",
+                                                        "color": "#ffffff",
+                                                        "weight": "bold"
+                                                    }
+                                                ],
+                                                "spacing": "sm"
+                                            },
+                                            {
+                                                "type": "box",
+                                                "layout": "vertical",
+                                                "contents": [
+                                                    {
+                                                        "type": "box",
+                                                        "layout": "vertical",
+                                                        "contents": [
+                                                            {
+                                                                "type": "text",
+                                                                "contents": [],
+                                                                "size": "sm",
+                                                                "wrap": true,
+                                                                "margin": "lg",
+                                                                "color": "#ffffffde",
+                                                                "text": "วัสดุหรือผลิตภัณฑ์ที่ไม่ใช้แล้วมีองค์ประกอบของสารที่เป็นอันตรายที่เป็นสารพิษ สารไวไฟ สารกัมมันตรังสี สารเคมี สารไวไฟ สารที่กัดกร่อนได้ หรือสารที่ก่อโรค เช่น ขวดน้ำยาล้างห้องน้ำ สารฆ่าแมลง ภาชนะบรรจุน้ำมัน หลอดฟลูออเรสเซนต์ แบตเตอรี่ ควรลดปริมาณการสร้างขยะ การกำจัดควรแยกทิ้งจากขยะอื่น ๆ และทิ้งในจุดที่กำหนดเท่านั้นเพื่อนำไปกำจัดอย่างถูกวิธี"
+                                                            }
+                                                        ]
+                                                    }
+                                                ],
+                                                "paddingAll": "13px",
+                                                "backgroundColor": "#ffffff1A",
+                                                "cornerRadius": "2px",
+                                                "margin": "xl"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "paddingAll": "20px",
+                                "backgroundColor": "#464F69"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "name_th": "ขยะทั่วไป",
+        "name_en": "trash",
+        "trash_type": "recycle",
+        "category": "",
+        "massage": [
+            {
+                "type": "flex",
+                "altText": "พลาสติก (plastic)",
+                "contents": {
+                    "type": "carousel",
+                    "contents": [
+                        {
+                            "type": "bubble",
+                            "hero": {
+                                "type": "ขยะทั่วไป (trash)",
+                                "size": "full",
+                                "aspectRatio": "20:13",
+                                "aspectMode": "cover",
+                                "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
+                            },
+                            "body": {
+                                "type": "box",
+                                "layout": "vertical",
+                                "spacing": "sm",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "ขยะทั่วไป (trash)",
+                                        "wrap": true,
+                                        "weight": "bold",
+                                        "size": "xl"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "text",
+                "text": "ขยะทั่วไป (trash) คือ ขยะที่ไม่สามารถรีไซเคิลได้ ไม่ย่อยสลาย และไม่มีสารอันตรายปนเปื้อน เช่น เปลือกลูกอม ซองขนม โฟม หลอด เป็นต้น ควรลดปริมาณการสร้างขยะ สามารถกำจัดโดยนำไปผลิตเชื้อเพลิงแบบ RDF นำไปใช้ซ้ำ เพิ่มมูลค่าด้วยการ Upcycling ส่วนที่เหลือนำไปฝังกลบแบบถูกวิธีที่หลุมฝังกลบหรือเตาเผาขยะ"
+            }
+        ]
     }
 ]
