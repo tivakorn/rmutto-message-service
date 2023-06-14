@@ -10,7 +10,7 @@
                 "type": "flex",
                 "altText": "ขยะอินทรีย์ (organic)",
                 "contents": {
-                    "type": "carousel",
+                    "type": "box",
                     "contents": [
                         {
                             "type": "bubble",
@@ -34,28 +34,6 @@
                                                 "layout": "vertical",
                                                 "contents": [
                                                     {
-                                                        "type": "text",
-                                                        "contents": [],
-                                                        "size": "xl",
-                                                        "wrap": true,
-                                                        "text": "Cony Residence",
-                                                        "color": "#ffffff",
-                                                        "weight": "bold"
-                                                    },
-                                                    {
-                                                        "type": "text",
-                                                        "text": "3 Bedrooms, ¥35,000",
-                                                        "color": "#ffffffcc",
-                                                        "size": "sm"
-                                                    }
-                                                ],
-                                                "spacing": "sm"
-                                            },
-                                            {
-                                                "type": "box",
-                                                "layout": "vertical",
-                                                "contents": [
-                                                    {
                                                         "type": "box",
                                                         "layout": "vertical",
                                                         "contents": [
@@ -66,7 +44,7 @@
                                                                 "wrap": true,
                                                                 "margin": "lg",
                                                                 "color": "#ffffffde",
-                                                                "text": "Private Pool, Delivery box, Floor heating, Private Cinema"
+                                                                "text": "ขยะอินทรีย์ (organic) คือ ขยะที่สามารถย่อยสลาย หรือหมักทำปุ๋ยได้ เช่น เศษอาหาร ใบไม้ เปลือกผลไม้ ควรกำจัดโดยการทำปุ๋ยหมัก น้ำหมักชีวภาพ ปุ๋ยมูลไส้เดือน เป็นอาหารสัตว์ ผลิตพลังงานชีวภาพ"
                                                             }
                                                         ]
                                                     }
@@ -85,10 +63,6 @@
                         }
                     ]
                 }
-            },
-            {
-                "type": "text",
-                "text": "ขยะอินทรีย์ (organic) คือ ขยะที่สามารถย่อยสลาย หรือหมักทำปุ๋ยได้ เช่น เศษอาหาร ใบไม้ เปลือกผลไม้ ควรกำจัดโดยการทำปุ๋ยหมัก น้ำหมักชีวภาพ ปุ๋ยมูลไส้เดือน เป็นอาหารสัตว์ ผลิตพลังงานชีวภาพ"
             }
         ]
     },
