@@ -60,16 +60,23 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         yield client.pushMessage(event.source.userId || '', action);
     }
     if (event.message.type === 'text') {
-        const actionList = [];
+        const contents = [];
         const message = event.message.text;
         message.split(',');
         for (const word of message.split(',')) {
             const garbage = garbage_json_1.default.find(element => (element.name_th === word.trim() || element.name_en === word.trim()));
-            const action = garbage === null || garbage === void 0 ? void 0 : garbage.massage;
-            actionList.push(...action);
-            console.log('test');
+            const action = garbage === null || garbage === void 0 ? void 0 : garbage.massage[0].contents.contents;
+            contents.push(...action);
         }
-        yield client.pushMessage(event.source.userId || '', actionList);
+        const flex = {
+            "type": "flex",
+            "altText": "ทำนายขยะจากรูปภาพ",
+            "contents": {
+                "type": "carousel",
+                "contents": contents
+            }
+        };
+        yield client.pushMessage(event.source.userId || '', flex);
         // switch (message) {
         //     case 'กระดาษกล่อง':
         //         text = `เก็บรวบรวม พับ มัดเป็นตั้ง`

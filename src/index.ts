@@ -80,7 +80,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
     if (event.message.type === 'text') {
 
-        const actionList: FlexMessage[] = []
+        const contents = []
 
         const message = event.message.text
 
@@ -90,14 +90,21 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
             const garbage = garbageList.find(element => (element.name_th === word.trim() || element.name_en === word.trim()))
 
-            const action = garbage?.massage as FlexMessage[]
+            const action = garbage?.massage[0].contents.contents
 
-            actionList.push(...action)
-
-            console.log('test')
+            contents.push(...action)
         }
 
-        await client.pushMessage(event.source.userId || '', actionList)
+        const flex = {
+            "type": "flex",
+            "altText": "ทำนายขยะจากรูปภาพ",
+            "contents": {
+                "type": "carousel",
+                "contents": contents
+            }
+        }
+
+        await client.pushMessage(event.source.userId || '', flex as FlexMessage)
         // switch (message) {
         //     case 'กระดาษกล่อง':
         //         text = `เก็บรวบรวม พับ มัดเป็นตั้ง`
