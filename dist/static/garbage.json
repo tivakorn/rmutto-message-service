@@ -589,14 +589,14 @@
         "massage": [
             {
                 "type": "flex",
-                "altText": "พลาสติก (plastic)",
+                "altText": "ขยะทั่วไป (trash)",
                 "contents": {
                     "type": "carousel",
                     "contents": [
                         {
                             "type": "bubble",
                             "hero": {
-                                "type": "ขยะทั่วไป (trash)",
+                                "type": "image",
                                 "size": "full",
                                 "aspectRatio": "20:13",
                                 "aspectMode": "cover",
@@ -605,24 +605,61 @@
                             "body": {
                                 "type": "box",
                                 "layout": "vertical",
-                                "spacing": "sm",
                                 "contents": [
                                     {
-                                        "type": "text",
-                                        "text": "ขยะทั่วไป (trash)",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "box",
+                                                "layout": "vertical",
+                                                "contents": [
+                                                    {
+                                                        "type": "text",
+                                                        "contents": [],
+                                                        "size": "xl",
+                                                        "wrap": true,
+                                                        "text": "ขยะทั่วไป (ขยะทั่วไป)",
+                                                        "color": "#ffffff",
+                                                        "weight": "bold"
+                                                    }
+                                                ],
+                                                "spacing": "sm"
+                                            },
+                                            {
+                                                "type": "box",
+                                                "layout": "vertical",
+                                                "contents": [
+                                                    {
+                                                        "type": "box",
+                                                        "layout": "vertical",
+                                                        "contents": [
+                                                            {
+                                                                "type": "text",
+                                                                "contents": [],
+                                                                "size": "sm",
+                                                                "wrap": true,
+                                                                "margin": "lg",
+                                                                "color": "#ffffffde",
+                                                                "text": "ขยะที่ไม่สามารถรีไซเคิลได้ ไม่ย่อยสลาย และไม่มีสารอันตรายปนเปื้อน เช่น เปลือกลูกอม ซองขนม โฟม หลอด เป็นต้น ควรลดปริมาณการสร้างขยะ สามารถกำจัดโดยนำไปผลิตเชื้อเพลิงแบบ RDF นำไปใช้ซ้ำ เพิ่มมูลค่าด้วยการ Upcycling ส่วนที่เหลือนำไปฝังกลบแบบถูกวิธีที่หลุมฝังกลบหรือเตาเผาขยะ"
+                                                            }
+                                                        ]
+                                                    }
+                                                ],
+                                                "paddingAll": "13px",
+                                                "backgroundColor": "#ffffff1A",
+                                                "cornerRadius": "2px",
+                                                "margin": "xl"
+                                            }
+                                        ]
                                     }
-                                ]
+                                ],
+                                "paddingAll": "20px",
+                                "backgroundColor": "#464F69"
                             }
                         }
                     ]
                 }
-            },
-            {
-                "type": "text",
-                "text": "ขยะทั่วไป (trash) คือ ขยะที่ไม่สามารถรีไซเคิลได้ ไม่ย่อยสลาย และไม่มีสารอันตรายปนเปื้อน เช่น เปลือกลูกอม ซองขนม โฟม หลอด เป็นต้น ควรลดปริมาณการสร้างขยะ สามารถกำจัดโดยนำไปผลิตเชื้อเพลิงแบบ RDF นำไปใช้ซ้ำ เพิ่มมูลค่าด้วยการ Upcycling ส่วนที่เหลือนำไปฝังกลบแบบถูกวิธีที่หลุมฝังกลบหรือเตาเผาขยะ"
             }
         ]
     }
