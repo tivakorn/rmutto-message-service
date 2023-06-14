@@ -79,6 +79,20 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
             yield client.pushMessage(event.source.userId || '', flex);
         }
         else if (message === 'การเพิ่มมูลค่าจากขยะใช้แล้ว') {
+            const contents = [];
+            for (const garbage of garbage_json_1.default) {
+                const action = garbage === null || garbage === void 0 ? void 0 : garbage.massage[0].contents.contents;
+                contents.push(...action);
+            }
+            const flexa = {
+                "type": "flex",
+                "altText": "รู้จักกับขยะประเภทต่างๆ",
+                "contents": {
+                    "type": "carousel",
+                    "contents": contents
+                }
+            };
+            yield client.pushMessage(event.source.userId || '', flexa);
             const flex = {
                 "type": "flex",
                 "altText": "การเพิ่มมูลค่าจากขยะใช้แล้ว",
