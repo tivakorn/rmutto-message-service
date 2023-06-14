@@ -60,42 +60,43 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         yield client.pushMessage(event.source.userId || '', action);
     }
     if (event.message.type === 'text') {
-        const contents = [];
         const message = event.message.text;
-        message.split(',');
-        for (const word of message.split(',')) {
-            const garbage = garbage_json_1.default.find(element => (element.name_th === word.trim() || element.name_en === word.trim()));
-            const action = garbage === null || garbage === void 0 ? void 0 : garbage.massage[0].contents.contents;
-            contents.push(...action);
-        }
-        const flex = {
-            "type": "flex",
-            "altText": "ทำนายขยะจากรูปภาพ",
-            "contents": {
-                "type": "carousel",
-                "contents": contents
+        if (message === 'รู้จักกับขยะประเภทต่างๆ') {
+            const contents = [];
+            for (const garbage of garbage_json_1.default) {
+                const action = garbage === null || garbage === void 0 ? void 0 : garbage.massage[0].contents.contents;
+                contents.push(...action);
             }
-        };
-        yield client.pushMessage(event.source.userId || '', flex);
-        // switch (message) {
-        //     case 'กระดาษกล่อง':
-        //         text = `เก็บรวบรวม พับ มัดเป็นตั้ง`
-        //         break
-        //     case 'กระดาษขาวดำ':
-        //         text = `เก็บรวบรวม มัดเป็นตั้ง`
-        //         break
-        //     case 'กล่องเครื่องดืื่ม':
-        //         text = `ดึง พับ เก็บ ตัด ล้าง พับ`
-        //         break
-        //     case 'ขวด PET ใส':
-        //         text = `ลอกฉลาก บีบ`
-        //         break
-        //     case 'กระป๋องอลูมิเนียม':
-        //         text = `บีบให้แบน เพิ่มพื้นที่จัดเก็บ`
-        //         break
-        //     default:
-        //         text = `ไม่รู้ๆๆๆ`
-        // }
+            const flex = {
+                "type": "flex",
+                "altText": "รู้จักกับขยะประเภทต่างๆ",
+                "contents": {
+                    "type": "carousel",
+                    "contents": contents
+                }
+            };
+            yield client.pushMessage(event.source.userId || '', flex);
+        }
+        else if (message === 'การเพิ่มมูลค่าจากขยะใช้แล้ว') {
+        }
+        else {
+            const contents = [];
+            message.split(',');
+            for (const word of message.split(',')) {
+                const garbage = garbage_json_1.default.find(element => (element.name_th === word.trim() || element.name_en === word.trim()));
+                const action = garbage === null || garbage === void 0 ? void 0 : garbage.massage[0].contents.contents;
+                contents.push(...action);
+            }
+            const flex = {
+                "type": "flex",
+                "altText": "ทำนายขยะจากรูปภาพ",
+                "contents": {
+                    "type": "carousel",
+                    "contents": contents
+                }
+            };
+            yield client.pushMessage(event.source.userId || '', flex);
+        }
     }
     // const content = await client.getMessageContent(event.message.id)
     // const imgaePath = path.resolve(__dirname, 'images', `${event.message.id}.jpg`)

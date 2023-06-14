@@ -80,54 +80,58 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
     if (event.message.type === 'text') {
 
-        const contents = []
-
         const message = event.message.text
 
-        message.split(',')
+        if (message === 'รู้จักกับขยะประเภทต่างๆ') {
 
-        for (const word of message.split(',')) {
+            const contents = []
 
-            const garbage = garbageList.find(element => (element.name_th === word.trim() || element.name_en === word.trim()))
+            for (const garbage of garbageList) {
 
-            const action = garbage?.massage[0].contents.contents
+                const action = garbage?.massage[0].contents.contents
 
-            contents.push(...action)
-        }
-
-        const flex = {
-            "type": "flex",
-            "altText": "ทำนายขยะจากรูปภาพ",
-            "contents": {
-                "type": "carousel",
-                "contents": contents
+                contents.push(...action)
             }
+
+            const flex = {
+                "type": "flex",
+                "altText": "รู้จักกับขยะประเภทต่างๆ",
+                "contents": {
+                    "type": "carousel",
+                    "contents": contents
+                }
+            }
+
+            await client.pushMessage(event.source.userId || '', flex as FlexMessage)
+
+        } else if (message === 'การเพิ่มมูลค่าจากขยะใช้แล้ว') {
+
+        } else {
+
+            const contents = []
+
+            message.split(',')
+
+            for (const word of message.split(',')) {
+
+                const garbage = garbageList.find(element => (element.name_th === word.trim() || element.name_en === word.trim()))
+
+                const action = garbage?.massage[0].contents.contents
+
+                contents.push(...action)
+            }
+
+            const flex = {
+                "type": "flex",
+                "altText": "ทำนายขยะจากรูปภาพ",
+                "contents": {
+                    "type": "carousel",
+                    "contents": contents
+                }
+            }
+
+            await client.pushMessage(event.source.userId || '', flex as FlexMessage)
         }
-
-        await client.pushMessage(event.source.userId || '', flex as FlexMessage)
-        // switch (message) {
-        //     case 'กระดาษกล่อง':
-        //         text = `เก็บรวบรวม พับ มัดเป็นตั้ง`
-        //         break
-        //     case 'กระดาษขาวดำ':
-
-        //         text = `เก็บรวบรวม มัดเป็นตั้ง`
-        //         break
-        //     case 'กล่องเครื่องดืื่ม':
-
-        //         text = `ดึง พับ เก็บ ตัด ล้าง พับ`
-        //         break
-        //     case 'ขวด PET ใส':
-
-        //         text = `ลอกฉลาก บีบ`
-        //         break
-        //     case 'กระป๋องอลูมิเนียม':
-
-        //         text = `บีบให้แบน เพิ่มพื้นที่จัดเก็บ`
-        //         break
-        //     default:
-        //         text = `ไม่รู้ๆๆๆ`
-        // }
     }
 
     // const content = await client.getMessageContent(event.message.id)
