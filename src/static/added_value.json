@@ -6,12 +6,12 @@
             "size": "full",
             "aspectRatio": "20:13",
             "aspectMode": "cover",
-            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
+            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/Screenshot%202566-06-15%20at%2018.38.58.png?alt=media&token=c0fba191-c07a-43b1-9082-c3ec35b1ee61"
         },
         "action": {
             "type": "uri",
             "label": "action",
-            "uri": "https://www.youtube.com/watch?v=vRQUbk53MA0"
+            "uri": "https://www.youtube.com/watch?v=aGW3TA8NXLw"
         }
     },
     {
@@ -21,12 +21,12 @@
             "size": "full",
             "aspectRatio": "20:13",
             "aspectMode": "cover",
-            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
+            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/Screenshot%202566-06-15%20at%2018.42.12.png?alt=media&token=69840afd-f6a5-4e42-8fb0-a7121c0d99d7"
         },
         "action": {
             "type": "uri",
             "label": "action",
-            "uri": "https://www.youtube.com/watch?v=vRQUbk53MA0"
+            "uri": "https://www.youtube.com/watch?v=j-LQB425fto"
         }
     },
     {
@@ -36,12 +36,12 @@
             "size": "full",
             "aspectRatio": "20:13",
             "aspectMode": "cover",
-            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
+            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/Screenshot%202566-06-15%20at%2018.43.23.png?alt=media&token=db547792-c14a-45c9-8753-1588255e161d"
         },
         "action": {
             "type": "uri",
             "label": "action",
-            "uri": "https://www.youtube.com/watch?v=vRQUbk53MA0"
+            "uri": "https://www.youtube.com/watch?v=wotEdA9ZtU4"
         }
     },
     {
@@ -51,12 +51,12 @@
             "size": "full",
             "aspectRatio": "20:13",
             "aspectMode": "cover",
-            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
+            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/Screenshot%202566-06-15%20at%2018.45.37.png?alt=media&token=eda4ebb1-fa26-4ebd-807f-1abbf7bcbf0c"
         },
         "action": {
             "type": "uri",
             "label": "action",
-            "uri": "https://www.youtube.com/watch?v=vRQUbk53MA0"
+            "uri": "https://www.youtube.com/watch?v=_m3gtlCYsnM"
         }
     },
     {
@@ -66,27 +66,12 @@
             "size": "full",
             "aspectRatio": "20:13",
             "aspectMode": "cover",
-            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
+            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/Screenshot%202566-06-15%20at%2018.46.04.png?alt=media&token=cc4823ab-8ccf-4326-863b-8d6c989b6463"
         },
         "action": {
             "type": "uri",
             "label": "action",
-            "uri": "https://www.youtube.com/watch?v=vRQUbk53MA0"
-        }
-    },
-    {
-        "type": "bubble",
-        "hero": {
-            "type": "image",
-            "size": "full",
-            "aspectRatio": "20:13",
-            "aspectMode": "cover",
-            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/IMG_8964.png?alt=media&token=0db23009-2915-49c1-b48c-b4f8fd816358"
-        },
-        "action": {
-            "type": "uri",
-            "label": "action",
-            "uri": "https://www.youtube.com/watch?v=vRQUbk53MA0"
+            "uri": "https://www.youtube.com/watch?v=TB29ifj7e-o"
         }
     }
 ]
