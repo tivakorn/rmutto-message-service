@@ -57,7 +57,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
         const content = await client.getMessageContent(event.message.id)
 
-        const result = await garbagePrediction(content)
+        // const result = await garbagePrediction(content)
 
         // const actionList: FlexMessage[] = []
 
@@ -72,7 +72,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
         const action = [
             {
                 type: 'text',
-                text: result.toString()
+                text: content.toString()
             }
         ] as TextMessage[]
 

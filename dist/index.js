@@ -46,7 +46,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
     }
     if (event.message.type === 'image') {
         const content = yield client.getMessageContent(event.message.id);
-        const result = yield garbagePrediction(content);
+        // const result = await garbagePrediction(content)
         // const actionList: FlexMessage[] = []
         // const garbage = garbageList.find(element => (element.name_en === 'plastic'))
         // const action = garbage?.massage as FlexMessage[]
@@ -55,7 +55,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         const action = [
             {
                 type: 'text',
-                text: result.toString()
+                text: content.toString()
             }
         ];
         yield client.pushMessage(event.source.userId || '', action);
