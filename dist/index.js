@@ -18,7 +18,8 @@ const bot_sdk_1 = require("@line/bot-sdk");
 const axios_1 = __importDefault(require("axios"));
 const garbage_json_1 = __importDefault(require("./static/garbage.json"));
 const added_value_json_1 = __importDefault(require("./static/added_value.json"));
-const port = process.env.PORT || 8080;
+const fs_1 = __importDefault(require("fs"));
+const port = process.env.PORT || 3000;
 const config = {
     channelAccessToken: 'PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=',
     channelSecret: '537035c20850a60a1da7b96ad8f791bf'
@@ -62,6 +63,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
     }
     if (event.message.type === 'text') {
         const message = event.message.text;
+        console.log(message);
         if (message === 'รู้จักกับขยะประเภทต่างๆ') {
             const contents = [];
             for (const garbage of garbage_json_1.default) {
@@ -88,6 +90,88 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                 }
             };
             yield client.pushMessage(event.source.userId || '', flex);
+        }
+        else if (message.includes('ตอบ')) {
+            const rawData = fs_1.default.readFileSync(`${__dirname}/static/reply_game.json`);
+            const jsonData = JSON.parse(rawData.toString());
+            const newData = {
+                newKey: event.source.userId || '',
+                anotherKey: message
+            };
+            jsonData.push(newData);
+            fs_1.default.writeFileSync(`${__dirname}/static/reply_game.json`, JSON.stringify(jsonData, null, 4));
+            const rawDataA = fs_1.default.readFileSync(`${__dirname}/static/reply_game.json`);
+            const jsonDataA = JSON.parse(rawDataA.toString());
+            const contents = [];
+            for (const garbage of jsonDataA) {
+                const action = (garbage === null || garbage === void 0 ? void 0 : garbage.anotherKey) || '';
+                contents.push({
+                    type: 'text',
+                    text: action
+                });
+            }
+            yield client.pushMessage(event.source.userId || '', contents);
+        }
+        else if (message.includes('ข้อ')) {
+            yield client.pushMessage(event.source.userId || '', [
+                {
+                    "type": "flex",
+                    "altText": "This is a Flex Message",
+                    "contents": {
+                        "type": "bubble",
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": "ข้อ 1 : ตอบ ก."
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": "ข้อ 1 : ตอบ ข."
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": "ข้อ 1 : ตอบ ค."
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": "ข้อ 1 : ตอบ ง."
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]);
         }
         else {
             const contents = [];

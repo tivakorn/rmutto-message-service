@@ -14,8 +14,9 @@ import {
 import axios from 'axios'
 import garbageList from './static/garbage.json'
 import addedValueContent from './static/added_value.json'
-
-const port = process.env.PORT || 8080
+import replyGame from './static/reply_game.json'
+import fs from 'fs'
+const port = process.env.PORT || 3000
 
 const config: ClientConfig = {
     channelAccessToken: 'PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=',
@@ -83,6 +84,8 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
         const message = event.message.text
 
+        console.log(message)
+
         if (message === 'รู้จักกับขยะประเภทต่างๆ') {
 
             const contents = []
@@ -117,6 +120,101 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
             }
 
             await client.pushMessage(event.source.userId || '', flex as FlexMessage)
+
+        } else if (message.includes('ตอบ')) {
+
+            const rawData = fs.readFileSync(`${__dirname}/static/reply_game.json`)
+
+            const jsonData = JSON.parse(rawData.toString())
+
+            const newData: any = {
+                newKey: event.source.userId || '',
+                anotherKey: message
+            };
+
+            jsonData.push(newData)
+
+            fs.writeFileSync(`${__dirname}/static/reply_game.json`, JSON.stringify(jsonData, null, 4))
+
+            const rawDataA = fs.readFileSync(`${__dirname}/static/reply_game.json`)
+
+            const jsonDataA = JSON.parse(rawDataA.toString())
+
+            const contents: TextMessage[] = []
+
+            for (const garbage of jsonDataA) {
+
+                const action = garbage?.anotherKey || ''
+
+                contents.push({
+                    type: 'text',
+                    text: action
+                })
+            }
+
+            await client.pushMessage(event.source.userId || '', contents)
+        
+        } else if (message.includes('ข้อ')) {
+
+            await client.pushMessage(event.source.userId || '', [
+                {
+                    "type": "flex",
+                    "altText": "This is a Flex Message",
+                    "contents": {
+                        "type": "bubble",
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": "ข้อ 1 : ตอบ ก."
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": "ข้อ 1 : ตอบ ข."
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": "ข้อ 1 : ตอบ ค."
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": "ข้อ 1 : ตอบ ง."
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ])
 
         } else {
 
