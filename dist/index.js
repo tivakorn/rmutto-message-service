@@ -17,7 +17,7 @@ const express_1 = __importDefault(require("express"));
 const axios_1 = __importDefault(require("axios"));
 const garbage_json_1 = __importDefault(require("./static/garbage.json"));
 const added_value_json_1 = __importDefault(require("./static/added_value.json"));
-const fs_1 = __importDefault(require("fs"));
+const blob_1 = require("@vercel/blob");
 const port = process.env.PORT || 3000;
 const bot_sdk_1 = require("@line/bot-sdk");
 const config = {
@@ -46,30 +46,28 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         yield client.pushMessage(event.source.userId || '', action);
     }
     if (event.message.type === 'image') {
-        // const headers = { 'Authorization': `Bearer ${middlewareConfig.channelAccessToken}` }
-        // const data = await axios.get(`https://api-data.line.me/v2/bot/message/${event.message.id}/content/preview`, { headers })
+        const headers = { 'Authorization': `Bearer ${middlewareConfig.channelAccessToken}` };
+        const data = yield axios_1.default.get(`https://api-data.line.me/v2/bot/message/${event.message.id}/content/preview`, { headers });
         // data.data.pipe(`${event.message.id}.jpg`);
         // data.data.on('finish', () => {
         //     data.data.close();
         //     console.log(`Image downloaded as ${'a'}`);
         // })
-        const messageContent = yield client.getMessageContent(event.message.id);
-        const filePath = `./images/${event.message.id}.jpg`;
-        const writeStream = fs_1.default.createWriteStream(filePath);
-        messageContent.pipe(writeStream);
+        // const messageContent = await client.getMessageContent(event.message.id);
+        const { url } = yield (0, blob_1.put)(`images/${event.message.id}.jpeg`, data.data, { access: 'public' });
         // const t = await garbagePrediction(data.data)
         // const actionList: FlexMessage[] = []
         // const garbage = garbageList.find(element => (element.name_en === 'plastic'))
         // const action = garbage?.massage as FlexMessage[]
         // actionList.push(...action)
         // await client.pushMessage(event.source.userId || '', actionList)
-        // const action = [
-        //     {
-        //         type: 'text',
-        //         text: content.toString()
-        //     }
-        // ] as TextMessage[]
-        // await client.pushMessage(event.source.userId || '', action)
+        const action = [
+            {
+                type: 'text',
+                text: url
+            }
+        ];
+        yield client.pushMessage(event.source.userId || '', action);
     }
     if (event.message.type === 'text') {
         const message = event.message.text;

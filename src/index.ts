@@ -5,9 +5,9 @@ import garbageList from './static/garbage.json'
 import addedValueContent from './static/added_value.json'
 import replyGame from './static/reply_game.json'
 import fs from 'fs'
+import { put } from "@vercel/blob";
 const port = process.env.PORT || 3000
 import { ClientConfig, MiddlewareConfig, Client, WebhookEvent, MessageAPIResponseBase, TextMessage, FlexMessage, middleware, ImageMessage } from '@line/bot-sdk'
-import { base64ToBlob, blobToBase64 } from 'base64-blob'
 
 const config: ClientConfig = {
     channelAccessToken: 'PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=',
@@ -47,9 +47,9 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
     if (event.message.type === 'image') {
 
-        // const headers = { 'Authorization': `Bearer ${middlewareConfig.channelAccessToken}` }
+        const headers = { 'Authorization': `Bearer ${middlewareConfig.channelAccessToken}` }
 
-        // const data = await axios.get(`https://api-data.line.me/v2/bot/message/${event.message.id}/content/preview`, { headers })
+        const data = await axios.get(`https://api-data.line.me/v2/bot/message/${event.message.id}/content/preview`, { headers })
 
         // data.data.pipe(`${event.message.id}.jpg`);
 
@@ -58,13 +58,10 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
         //     console.log(`Image downloaded as ${'a'}`);
         // })
 
-        const messageContent = await client.getMessageContent(event.message.id);
+        // const messageContent = await client.getMessageContent(event.message.id);
 
-        const filePath = `./images/${event.message.id}.jpg`
 
-        const writeStream = fs.createWriteStream(filePath)
-
-        messageContent.pipe(writeStream)
+        const { url } = await put(`images/${event.message.id}.jpeg`, data.data, { access: 'public' });
 
         // const t = await garbagePrediction(data.data)
 
@@ -78,14 +75,14 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
         // await client.pushMessage(event.source.userId || '', actionList)
 
-        // const action = [
-        //     {
-        //         type: 'text',
-        //         text: content.toString()
-        //     }
-        // ] as TextMessage[]
+        const action = [
+            {
+                type: 'text',
+                text: url
+            }
+        ] as TextMessage[]
 
-        // await client.pushMessage(event.source.userId || '', action)
+        await client.pushMessage(event.source.userId || '', action)
     }
 
     if (event.message.type === 'text') {
