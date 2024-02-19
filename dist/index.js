@@ -14,12 +14,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 // Dependencies
 const express_1 = __importDefault(require("express"));
-const bot_sdk_1 = require("@line/bot-sdk");
 const axios_1 = __importDefault(require("axios"));
 const garbage_json_1 = __importDefault(require("./static/garbage.json"));
 const added_value_json_1 = __importDefault(require("./static/added_value.json"));
 const fs_1 = __importDefault(require("fs"));
 const port = process.env.PORT || 3000;
+const bot_sdk_1 = require("@line/bot-sdk");
 const config = {
     channelAccessToken: 'PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=',
     channelSecret: '537035c20850a60a1da7b96ad8f791bf'
@@ -46,20 +46,30 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         yield client.pushMessage(event.source.userId || '', action);
     }
     if (event.message.type === 'image') {
-        const content = yield client.getMessageContent(event.message.id);
-        // const result = await garbagePrediction(content)
+        // const headers = { 'Authorization': `Bearer ${middlewareConfig.channelAccessToken}` }
+        // const data = await axios.get(`https://api-data.line.me/v2/bot/message/${event.message.id}/content/preview`, { headers })
+        // data.data.pipe(`${event.message.id}.jpg`);
+        // data.data.on('finish', () => {
+        //     data.data.close();
+        //     console.log(`Image downloaded as ${'a'}`);
+        // })
+        const messageContent = yield client.getMessageContent(event.message.id);
+        const filePath = `./images/${event.message.id}.jpg`;
+        const writeStream = fs_1.default.createWriteStream(filePath);
+        messageContent.pipe(writeStream);
+        // const t = await garbagePrediction(data.data)
         // const actionList: FlexMessage[] = []
         // const garbage = garbageList.find(element => (element.name_en === 'plastic'))
         // const action = garbage?.massage as FlexMessage[]
         // actionList.push(...action)
         // await client.pushMessage(event.source.userId || '', actionList)
-        const action = [
-            {
-                type: 'text',
-                text: content.toString()
-            }
-        ];
-        yield client.pushMessage(event.source.userId || '', action);
+        // const action = [
+        //     {
+        //         type: 'text',
+        //         text: content.toString()
+        //     }
+        // ] as TextMessage[]
+        // await client.pushMessage(event.source.userId || '', action)
     }
     if (event.message.type === 'text') {
         const message = event.message.text;
@@ -91,28 +101,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
             };
             yield client.pushMessage(event.source.userId || '', flex);
         }
-        else if (message.includes('ตอบ')) {
-            const rawData = fs_1.default.readFileSync(`${__dirname}/static/reply_game.json`);
-            const jsonData = JSON.parse(rawData.toString());
-            const newData = {
-                newKey: event.source.userId || '',
-                anotherKey: message
-            };
-            jsonData.push(newData);
-            fs_1.default.writeFileSync(`${__dirname}/static/reply_game.json`, JSON.stringify(jsonData, null, 4));
-            const rawDataA = fs_1.default.readFileSync(`${__dirname}/static/reply_game.json`);
-            const jsonDataA = JSON.parse(rawDataA.toString());
-            const contents = [];
-            for (const garbage of jsonDataA) {
-                const action = (garbage === null || garbage === void 0 ? void 0 : garbage.anotherKey) || '';
-                contents.push({
-                    type: 'text',
-                    text: action
-                });
-            }
-            yield client.pushMessage(event.source.userId || '', contents);
-        }
-        else if (message.includes('ข้อ')) {
+        else if (message.includes('ข้อ 3')) {
             yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
@@ -131,7 +120,190 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "action": {
                                         "type": "message",
                                         "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": "ข้อ 1 : ตอบ ก."
+                                        "text": message + '\n' + 'ข้อ 4 : ตอบ ก.'
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": "ข้อ 1 : ตอบ ข."
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": "ข้อ 1 : ตอบ ค."
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": "ข้อ 1 : ตอบ ง."
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]);
+        }
+        else if (message.includes('ข้อ 2')) {
+            yield client.pushMessage(event.source.userId || '', [
+                {
+                    "type": "flex",
+                    "altText": "This is a Flex Message",
+                    "contents": {
+                        "type": "bubble",
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + 'ข้อ 3 : ตอบ ก.'
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": "ข้อ 1 : ตอบ ข."
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": "ข้อ 1 : ตอบ ค."
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": "ข้อ 1 : ตอบ ง."
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]);
+        }
+        else if (message.includes('ข้อ 1')) {
+            yield client.pushMessage(event.source.userId || '', [
+                {
+                    "type": "flex",
+                    "altText": "This is a Flex Message",
+                    "contents": {
+                        "type": "bubble",
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + 'ข้อ 2 : ตอบ ก.'
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": "ข้อ 1 : ตอบ ข."
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": "ข้อ 1 : ตอบ ค."
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": "ข้อ 1 : ตอบ ง."
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]);
+        }
+        else if (message.includes('เกมทดสอบ')) {
+            yield client.pushMessage(event.source.userId || '', [
+                {
+                    "type": "flex",
+                    "altText": "This is a Flex Message",
+                    "contents": {
+                        "type": "bubble",
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + 'ข้อ 1 : ตอบ ก.'
                                     }
                                 },
                                 {
@@ -204,9 +376,14 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
 });
 const garbagePrediction = (image) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const body = new FormData();
-        body.append('input_file', image);
-        const result = yield axios_1.default.post('https://devrmutto.pythonanywhere.com/p');
+        const formData = new FormData();
+        const response = yield axios_1.default.post('http://httpbin.org/post', image, {
+            headers: {
+                "Content-Type": "image/jpeg"
+            }
+        });
+        formData.append('input_file', image);
+        const result = yield axios_1.default.post('https://devrmutto.pythonanywhere.com/p', formData, { headers: { "Content-Type": "application/xml" } });
         return result.data;
     }
     catch (error) {
@@ -232,6 +409,5 @@ app.post('/webhook', (0, bot_sdk_1.middleware)(middlewareConfig), (req, res) => 
         results
     });
 }));
-app.get('/test', (req, res) => res.json({ test: 'test' }));
 app.listen(port, () => console.log(`Application is live and listening on port ${port}`));
 //# sourceMappingURL=index.js.map

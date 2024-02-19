@@ -1,22 +1,13 @@
 // Dependencies
 import express, { Request, Response } from 'express'
-import {
-    Client,
-    ClientConfig,
-    middleware,
-    MiddlewareConfig,
-    WebhookEvent,
-    MessageAPIResponseBase,
-    FlexMessage,
-    TextMessage
-} from '@line/bot-sdk'
-
 import axios from 'axios'
 import garbageList from './static/garbage.json'
 import addedValueContent from './static/added_value.json'
 import replyGame from './static/reply_game.json'
 import fs from 'fs'
 const port = process.env.PORT || 3000
+import { ClientConfig, MiddlewareConfig, Client, WebhookEvent, MessageAPIResponseBase, TextMessage, FlexMessage, middleware, ImageMessage } from '@line/bot-sdk'
+import { base64ToBlob, blobToBase64 } from 'base64-blob'
 
 const config: ClientConfig = {
     channelAccessToken: 'PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=',
@@ -56,9 +47,26 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
     if (event.message.type === 'image') {
 
-        const content = await client.getMessageContent(event.message.id)
+        // const headers = { 'Authorization': `Bearer ${middlewareConfig.channelAccessToken}` }
 
-        // const result = await garbagePrediction(content)
+        // const data = await axios.get(`https://api-data.line.me/v2/bot/message/${event.message.id}/content/preview`, { headers })
+
+        // data.data.pipe(`${event.message.id}.jpg`);
+
+        // data.data.on('finish', () => {
+        //     data.data.close();
+        //     console.log(`Image downloaded as ${'a'}`);
+        // })
+
+        const messageContent = await client.getMessageContent(event.message.id);
+
+        const filePath = `./images/${event.message.id}.jpg`
+
+        const writeStream = fs.createWriteStream(filePath)
+
+        messageContent.pipe(writeStream)
+
+        // const t = await garbagePrediction(data.data)
 
         // const actionList: FlexMessage[] = []
 
@@ -70,14 +78,14 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
         // await client.pushMessage(event.source.userId || '', actionList)
 
-        const action = [
-            {
-                type: 'text',
-                text: content.toString()
-            }
-        ] as TextMessage[]
+        // const action = [
+        //     {
+        //         type: 'text',
+        //         text: content.toString()
+        //     }
+        // ] as TextMessage[]
 
-        await client.pushMessage(event.source.userId || '', action)
+        // await client.pushMessage(event.source.userId || '', action)
     }
 
     if (event.message.type === 'text') {
@@ -121,40 +129,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
             await client.pushMessage(event.source.userId || '', flex as FlexMessage)
 
-        } else if (message.includes('ตอบ')) {
-
-            const rawData = fs.readFileSync(`${__dirname}/static/reply_game.json`)
-
-            const jsonData = JSON.parse(rawData.toString())
-
-            const newData: any = {
-                newKey: event.source.userId || '',
-                anotherKey: message
-            };
-
-            jsonData.push(newData)
-
-            fs.writeFileSync(`${__dirname}/static/reply_game.json`, JSON.stringify(jsonData, null, 4))
-
-            const rawDataA = fs.readFileSync(`${__dirname}/static/reply_game.json`)
-
-            const jsonDataA = JSON.parse(rawDataA.toString())
-
-            const contents: TextMessage[] = []
-
-            for (const garbage of jsonDataA) {
-
-                const action = garbage?.anotherKey || ''
-
-                contents.push({
-                    type: 'text',
-                    text: action
-                })
-            }
-
-            await client.pushMessage(event.source.userId || '', contents)
-        
-        } else if (message.includes('ข้อ')) {
+        } else if (message.includes('ข้อ 3')) {
 
             await client.pushMessage(event.source.userId || '', [
                 {
@@ -174,7 +149,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                                     "action": {
                                         "type": "message",
                                         "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": "ข้อ 1 : ตอบ ก."
+                                        "text": message + '\n' + 'ข้อ 4 : ตอบ ก.'
                                     }
                                 },
                                 {
@@ -216,6 +191,192 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 }
             ])
 
+        } else if (message.includes('ข้อ 2')) {
+
+            await client.pushMessage(event.source.userId || '', [
+                {
+                    "type": "flex",
+                    "altText": "This is a Flex Message",
+                    "contents": {
+                        "type": "bubble",
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + 'ข้อ 3 : ตอบ ก.'
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": "ข้อ 1 : ตอบ ข."
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": "ข้อ 1 : ตอบ ค."
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": "ข้อ 1 : ตอบ ง."
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ])
+
+        } else if (message.includes('ข้อ 1')) {
+
+
+            await client.pushMessage(event.source.userId || '', [
+                {
+                    "type": "flex",
+                    "altText": "This is a Flex Message",
+                    "contents": {
+                        "type": "bubble",
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + 'ข้อ 2 : ตอบ ก.'
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": "ข้อ 1 : ตอบ ข."
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": "ข้อ 1 : ตอบ ค."
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": "ข้อ 1 : ตอบ ง."
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ])
+
+        } else if (message.includes('เกมทดสอบ')) {
+
+            await client.pushMessage(event.source.userId || '', [
+                {
+                    "type": "flex",
+                    "altText": "This is a Flex Message",
+                    "contents": {
+                        "type": "bubble",
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + 'ข้อ 1 : ตอบ ก.'
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": "ข้อ 1 : ตอบ ข."
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": "ข้อ 1 : ตอบ ค."
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": "ข้อ 1 : ตอบ ง."
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ])
         } else {
 
             const contents = []
@@ -265,11 +426,18 @@ const garbagePrediction = async (image: any) => {
 
     try {
 
-        const body = new FormData()
+        const formData = new FormData()
 
-        body.append('input_file', image)
+        const response = await axios.post('http://httpbin.org/post', image, {
+            headers: {
+                "Content-Type": "image/jpeg"
+            }
+        })
 
-        const result = await axios.post('https://devrmutto.pythonanywhere.com/p')
+
+        formData.append('input_file', image)
+
+        const result = await axios.post('https://devrmutto.pythonanywhere.com/p', formData, { headers: { "Content-Type": "application/xml" } })
 
         return result.data
     }
@@ -306,7 +474,5 @@ app.post('/webhook', middleware(middlewareConfig), async (req: Request, res: Res
         results
     })
 })
-
-app.get('/test', (req, res) => res.json({ test: 'test' }))
 
 app.listen(port, () => console.log(`Application is live and listening on port ${port}`))
