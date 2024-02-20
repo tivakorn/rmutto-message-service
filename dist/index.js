@@ -13,41 +13,42 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 // Dependencies
-const express_1 = __importDefault(require("express"));
 const axios_1 = __importDefault(require("axios"));
+const express_1 = __importDefault(require("express"));
 const garbage_json_1 = __importDefault(require("./static/garbage.json"));
 const added_value_json_1 = __importDefault(require("./static/added_value.json"));
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const port = process.env.PORT || 3000;
 const bot_sdk_1 = require("@line/bot-sdk");
-const form_data_1 = __importDefault(require("form-data"));
+// import { fileFromPath } from "formdata-node/file-from-path";
+// import FormData from "form-data";
 const config = {
-    channelAccessToken: 'PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=',
-    channelSecret: '537035c20850a60a1da7b96ad8f791bf'
+    channelAccessToken: "PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=",
+    channelSecret: "537035c20850a60a1da7b96ad8f791bf",
 };
 const middlewareConfig = {
-    channelAccessToken: 'PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=',
-    channelSecret: '537035c20850a60a1da7b96ad8f791bf'
+    channelAccessToken: "PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=",
+    channelSecret: "537035c20850a60a1da7b96ad8f791bf",
 };
 const client = new bot_sdk_1.Client(config);
 const app = (0, express_1.default)();
 const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* () {
     // let action: FlexMessage[] | TextMessage[] = []
-    if (event.type !== 'message')
+    if (event.type !== "message")
         return;
-    let text = 'กำลังปั่นงานอยู่นะ!';
-    if (!['text', 'image'].includes(event.message.type)) {
+    let text = "กำลังปั่นงานอยู่นะ!";
+    if (!["text", "image"].includes(event.message.type)) {
         text = `ส่ง ${event.message.type} มาหรอ เรายังไม่ทำหรอกนะ.`;
         const action = [
             {
-                type: 'text',
-                text: text
-            }
+                type: "text",
+                text: text,
+            },
         ];
-        yield client.pushMessage(event.source.userId || '', action);
+        yield client.pushMessage(event.source.userId || "", action);
     }
-    if (event.message.type === 'image') {
+    if (event.message.type === "image") {
         // data.data.pipe(`${event.message.id}.jpg`);
         // data.data.on('finish', () => {
         //     data.data.close();
@@ -63,303 +64,303 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         // await client.pushMessage(event.source.userId || '', actionList)
         const action = [
             {
-                type: 'text',
-                text: t
-            }
+                type: "text",
+                text: t,
+            },
         ];
-        yield client.pushMessage(event.source.userId || '', action);
+        yield client.pushMessage(event.source.userId || "", action);
     }
-    if (event.message.type === 'text') {
+    if (event.message.type === "text") {
         const message = event.message.text;
         console.log(message);
-        if (message === 'รู้จักกับขยะประเภทต่างๆ') {
+        if (message === "รู้จักกับขยะประเภทต่างๆ") {
             const contents = [];
             for (const garbage of garbage_json_1.default) {
                 const action = garbage === null || garbage === void 0 ? void 0 : garbage.massage[0].contents.contents;
                 contents.push(...action);
             }
             const flex = {
-                "type": "flex",
-                "altText": "รู้จักกับขยะประเภทต่างๆ",
-                "contents": {
-                    "type": "carousel",
-                    "contents": contents
-                }
+                type: "flex",
+                altText: "รู้จักกับขยะประเภทต่างๆ",
+                contents: {
+                    type: "carousel",
+                    contents: contents,
+                },
             };
-            yield client.pushMessage(event.source.userId || '', flex);
+            yield client.pushMessage(event.source.userId || "", flex);
         }
-        else if (message === 'การเพิ่มมูลค่าจากขยะใช้แล้ว') {
+        else if (message === "การเพิ่มมูลค่าจากขยะใช้แล้ว") {
             const flex = {
-                "type": "flex",
-                "altText": "การเพิ่มมูลค่าจากขยะใช้แล้ว",
-                "contents": {
-                    "type": "carousel",
-                    "contents": added_value_json_1.default
-                }
+                type: "flex",
+                altText: "การเพิ่มมูลค่าจากขยะใช้แล้ว",
+                contents: {
+                    type: "carousel",
+                    contents: added_value_json_1.default,
+                },
             };
-            yield client.pushMessage(event.source.userId || '', flex);
+            yield client.pushMessage(event.source.userId || "", flex);
         }
-        else if (message.includes('ข้อ 3')) {
-            yield client.pushMessage(event.source.userId || '', [
+        else if (message.includes("ข้อ 3")) {
+            yield client.pushMessage(event.source.userId || "", [
                 {
-                    "type": "flex",
-                    "altText": "This is a Flex Message",
-                    "contents": {
-                        "type": "bubble",
-                        "body": {
-                            "type": "box",
-                            "layout": "vertical",
-                            "contents": [
+                    type: "flex",
+                    altText: "This is a Flex Message",
+                    contents: {
+                        type: "bubble",
+                        body: {
+                            type: "box",
+                            layout: "vertical",
+                            contents: [
                                 {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + 'ข้อ 4 : ตอบ ก.'
-                                    }
+                                    type: "button",
+                                    style: "primary",
+                                    height: "sm",
+                                    margin: "sm",
+                                    action: {
+                                        type: "message",
+                                        label: "มัธยมศึกษาปีที่ 1",
+                                        text: message + "\n" + "ข้อ 4 : ตอบ ก.",
+                                    },
                                 },
                                 {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": "ข้อ 1 : ตอบ ข."
-                                    }
+                                    type: "button",
+                                    style: "primary",
+                                    height: "sm",
+                                    margin: "sm",
+                                    action: {
+                                        type: "message",
+                                        label: "มัธยมศึกษาปีที่ 2",
+                                        text: "ข้อ 1 : ตอบ ข.",
+                                    },
                                 },
                                 {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": "ข้อ 1 : ตอบ ค."
-                                    }
+                                    type: "button",
+                                    style: "primary",
+                                    height: "sm",
+                                    margin: "sm",
+                                    action: {
+                                        type: "message",
+                                        label: "มัธยมศึกษาปีที่ 1",
+                                        text: "ข้อ 1 : ตอบ ค.",
+                                    },
                                 },
                                 {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": "ข้อ 1 : ตอบ ง."
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
+                                    type: "button",
+                                    style: "primary",
+                                    height: "sm",
+                                    margin: "sm",
+                                    action: {
+                                        type: "message",
+                                        label: "มัธยมศึกษาปีที่ 2",
+                                        text: "ข้อ 1 : ตอบ ง.",
+                                    },
+                                },
+                            ],
+                        },
+                    },
+                },
             ]);
         }
-        else if (message.includes('ข้อ 2')) {
-            yield client.pushMessage(event.source.userId || '', [
+        else if (message.includes("ข้อ 2")) {
+            yield client.pushMessage(event.source.userId || "", [
                 {
-                    "type": "flex",
-                    "altText": "This is a Flex Message",
-                    "contents": {
-                        "type": "bubble",
-                        "body": {
-                            "type": "box",
-                            "layout": "vertical",
-                            "contents": [
+                    type: "flex",
+                    altText: "This is a Flex Message",
+                    contents: {
+                        type: "bubble",
+                        body: {
+                            type: "box",
+                            layout: "vertical",
+                            contents: [
                                 {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + 'ข้อ 3 : ตอบ ก.'
-                                    }
+                                    type: "button",
+                                    style: "primary",
+                                    height: "sm",
+                                    margin: "sm",
+                                    action: {
+                                        type: "message",
+                                        label: "มัธยมศึกษาปีที่ 1",
+                                        text: message + "\n" + "ข้อ 3 : ตอบ ก.",
+                                    },
                                 },
                                 {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": "ข้อ 1 : ตอบ ข."
-                                    }
+                                    type: "button",
+                                    style: "primary",
+                                    height: "sm",
+                                    margin: "sm",
+                                    action: {
+                                        type: "message",
+                                        label: "มัธยมศึกษาปีที่ 2",
+                                        text: "ข้อ 1 : ตอบ ข.",
+                                    },
                                 },
                                 {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": "ข้อ 1 : ตอบ ค."
-                                    }
+                                    type: "button",
+                                    style: "primary",
+                                    height: "sm",
+                                    margin: "sm",
+                                    action: {
+                                        type: "message",
+                                        label: "มัธยมศึกษาปีที่ 1",
+                                        text: "ข้อ 1 : ตอบ ค.",
+                                    },
                                 },
                                 {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": "ข้อ 1 : ตอบ ง."
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
+                                    type: "button",
+                                    style: "primary",
+                                    height: "sm",
+                                    margin: "sm",
+                                    action: {
+                                        type: "message",
+                                        label: "มัธยมศึกษาปีที่ 2",
+                                        text: "ข้อ 1 : ตอบ ง.",
+                                    },
+                                },
+                            ],
+                        },
+                    },
+                },
             ]);
         }
-        else if (message.includes('ข้อ 1')) {
-            yield client.pushMessage(event.source.userId || '', [
+        else if (message.includes("ข้อ 1")) {
+            yield client.pushMessage(event.source.userId || "", [
                 {
-                    "type": "flex",
-                    "altText": "This is a Flex Message",
-                    "contents": {
-                        "type": "bubble",
-                        "body": {
-                            "type": "box",
-                            "layout": "vertical",
-                            "contents": [
+                    type: "flex",
+                    altText: "This is a Flex Message",
+                    contents: {
+                        type: "bubble",
+                        body: {
+                            type: "box",
+                            layout: "vertical",
+                            contents: [
                                 {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + 'ข้อ 2 : ตอบ ก.'
-                                    }
+                                    type: "button",
+                                    style: "primary",
+                                    height: "sm",
+                                    margin: "sm",
+                                    action: {
+                                        type: "message",
+                                        label: "มัธยมศึกษาปีที่ 1",
+                                        text: message + "\n" + "ข้อ 2 : ตอบ ก.",
+                                    },
                                 },
                                 {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": "ข้อ 1 : ตอบ ข."
-                                    }
+                                    type: "button",
+                                    style: "primary",
+                                    height: "sm",
+                                    margin: "sm",
+                                    action: {
+                                        type: "message",
+                                        label: "มัธยมศึกษาปีที่ 2",
+                                        text: "ข้อ 1 : ตอบ ข.",
+                                    },
                                 },
                                 {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": "ข้อ 1 : ตอบ ค."
-                                    }
+                                    type: "button",
+                                    style: "primary",
+                                    height: "sm",
+                                    margin: "sm",
+                                    action: {
+                                        type: "message",
+                                        label: "มัธยมศึกษาปีที่ 1",
+                                        text: "ข้อ 1 : ตอบ ค.",
+                                    },
                                 },
                                 {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": "ข้อ 1 : ตอบ ง."
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
+                                    type: "button",
+                                    style: "primary",
+                                    height: "sm",
+                                    margin: "sm",
+                                    action: {
+                                        type: "message",
+                                        label: "มัธยมศึกษาปีที่ 2",
+                                        text: "ข้อ 1 : ตอบ ง.",
+                                    },
+                                },
+                            ],
+                        },
+                    },
+                },
             ]);
         }
-        else if (message.includes('เกมทดสอบ')) {
-            yield client.pushMessage(event.source.userId || '', [
+        else if (message.includes("เกมทดสอบ")) {
+            yield client.pushMessage(event.source.userId || "", [
                 {
-                    "type": "flex",
-                    "altText": "This is a Flex Message",
-                    "contents": {
-                        "type": "bubble",
-                        "body": {
-                            "type": "box",
-                            "layout": "vertical",
-                            "contents": [
+                    type: "flex",
+                    altText: "This is a Flex Message",
+                    contents: {
+                        type: "bubble",
+                        body: {
+                            type: "box",
+                            layout: "vertical",
+                            contents: [
                                 {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + 'ข้อ 1 : ตอบ ก.'
-                                    }
+                                    type: "button",
+                                    style: "primary",
+                                    height: "sm",
+                                    margin: "sm",
+                                    action: {
+                                        type: "message",
+                                        label: "มัธยมศึกษาปีที่ 1",
+                                        text: message + "\n" + "ข้อ 1 : ตอบ ก.",
+                                    },
                                 },
                                 {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": "ข้อ 1 : ตอบ ข."
-                                    }
+                                    type: "button",
+                                    style: "primary",
+                                    height: "sm",
+                                    margin: "sm",
+                                    action: {
+                                        type: "message",
+                                        label: "มัธยมศึกษาปีที่ 2",
+                                        text: "ข้อ 1 : ตอบ ข.",
+                                    },
                                 },
                                 {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": "ข้อ 1 : ตอบ ค."
-                                    }
+                                    type: "button",
+                                    style: "primary",
+                                    height: "sm",
+                                    margin: "sm",
+                                    action: {
+                                        type: "message",
+                                        label: "มัธยมศึกษาปีที่ 1",
+                                        text: "ข้อ 1 : ตอบ ค.",
+                                    },
                                 },
                                 {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": "ข้อ 1 : ตอบ ง."
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
+                                    type: "button",
+                                    style: "primary",
+                                    height: "sm",
+                                    margin: "sm",
+                                    action: {
+                                        type: "message",
+                                        label: "มัธยมศึกษาปีที่ 2",
+                                        text: "ข้อ 1 : ตอบ ง.",
+                                    },
+                                },
+                            ],
+                        },
+                    },
+                },
             ]);
         }
         else {
             const contents = [];
-            message.split(',');
-            for (const word of message.split(',')) {
-                const garbage = garbage_json_1.default.find(element => (element.name_th === word.trim() || element.name_en === word.trim()));
+            message.split(",");
+            for (const word of message.split(",")) {
+                const garbage = garbage_json_1.default.find((element) => element.name_th === word.trim() || element.name_en === word.trim());
                 const action = garbage === null || garbage === void 0 ? void 0 : garbage.massage[0].contents.contents;
                 contents.push(...action);
             }
             const flex = {
-                "type": "flex",
-                "altText": "ทำนายขยะจากรูปภาพ",
-                "contents": {
-                    "type": "carousel",
-                    "contents": contents
-                }
+                type: "flex",
+                altText: "ทำนายขยะจากรูปภาพ",
+                contents: {
+                    type: "carousel",
+                    contents: contents,
+                },
             };
-            yield client.pushMessage(event.source.userId || '', flex);
+            yield client.pushMessage(event.source.userId || "", flex);
         }
     }
     // const content = await client.getMessageContent(event.message.id)
@@ -374,32 +375,73 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
 });
 const garbagePrediction = (id) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const headers = { 'Authorization': `Bearer PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=` };
+        const headers = {
+            Authorization: `Bearer PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=`,
+        };
         const image = yield axios_1.default.get(`https://api-data.line.me/v2/bot/message/${id}/content/preview`, {
             headers,
-            responseType: 'arraybuffer'
+            responseType: "arraybuffer",
         });
-        const base64File = image.data.toString('base64');
-        const base64Data = base64File.replace(/^data:image\/png;base64,/, '');
-        const uploadFile = path_1.default.join(__dirname, 'temp.jpg');
+        const base64File = image.data.toString("base64");
+        const base64Data = base64File.replace(/^data:image\/png;base64,/, "");
+        const uploadFile = path_1.default.join(__dirname, "temp.jpg");
         // const writeFilePromise = util.promisify(fs.writeFileSync)
-        fs_1.default.writeFileSync(uploadFile, base64Data, { encoding: 'base64', mode: 0o777 });
+        fs_1.default.writeFileSync(uploadFile, base64Data, {
+            encoding: "base64",
+            mode: 0o777,
+        });
         // const data = fs.createReadStream(uploadFile)
         // const imageData = Buffer.from(image.data).toString('base64');
         // const mimeType = image.headers['content-type'];
-        const formData = new form_data_1.default();
-        formData.append('input_file', fs_1.default.createReadStream(uploadFile));
-        const result = yield axios_1.default.post('https://devrmutto.pythonanywhere.com/p', formData, { headers: { "Content-Type": "multipart/form-data" } });
+        const formData = new FormData();
+        // formData.append("input_file", fs.createReadStream(uploadFile));
+        // const result = await axios.post(
+        //   "https://devrmutto.pythonanywhere.com/p",
+        //   formData,
+        //   { headers: { "Content-Type": "multipart/form-data" } }
+        // );
         // console.log(result.data)
         // fs.unlinkSync(tempLocalFile)
-        return result.data.result || 'ผิดพลาด';
+        // return result.data.result || "ผิดพลาด";
     }
     catch (error) {
-        console.log('error', error);
+        console.log("error", error);
         return error;
     }
 });
-app.post('/webhook', (0, bot_sdk_1.middleware)(middlewareConfig), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const garbagePredictionBest = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log("garbagePredictionBest");
+    const headers = {
+        Authorization: `Bearer PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=`,
+    };
+    const resp = yield axios_1.default.get(`https://api-data.line.me/v2/bot/message/${id}/content/preview`, {
+        headers,
+        responseType: "stream",
+    });
+    const stream = resp.data;
+    const streamRead = yield stream.read();
+    const buffer = Buffer.from(streamRead);
+    const blob = new Blob([buffer]);
+    const formData = new FormData();
+    formData.append("input_file", blob);
+    const result = yield axios_1.default.post("https://devrmutto.pythonanywhere.com/p", formData, {
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+    });
+    console.log(result.data);
+    return result.data;
+});
+app.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const data = yield garbagePredictionBest(req.params.id);
+        return res.status(200).send(data);
+    }
+    catch (error) {
+        return res.status(400).send(error);
+    }
+}));
+app.post("/webhook", (0, bot_sdk_1.middleware)(middlewareConfig), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const events = req.body.events;
     const results = yield Promise.all(events.map((event) => __awaiter(void 0, void 0, void 0, function* () {
         try {
@@ -409,13 +451,13 @@ app.post('/webhook', (0, bot_sdk_1.middleware)(middlewareConfig), (req, res) => 
             if (err instanceof Error)
                 console.error(err);
             return res.status(500).json({
-                status: 'error',
+                status: "error",
             });
         }
     })));
     return res.status(200).json({
-        status: 'success',
-        results
+        status: "success",
+        results,
     });
 }));
 app.listen(port, () => console.log(`Application is live and listening on port ${port}`));
