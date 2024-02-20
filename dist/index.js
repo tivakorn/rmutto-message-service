@@ -17,9 +17,11 @@ const express_1 = __importDefault(require("express"));
 const axios_1 = __importDefault(require("axios"));
 const garbage_json_1 = __importDefault(require("./static/garbage.json"));
 const added_value_json_1 = __importDefault(require("./static/added_value.json"));
-const blob_1 = require("@vercel/blob");
+const path_1 = __importDefault(require("path"));
+const fs_1 = __importDefault(require("fs"));
 const port = process.env.PORT || 3000;
 const bot_sdk_1 = require("@line/bot-sdk");
+const form_data_1 = __importDefault(require("form-data"));
 const config = {
     channelAccessToken: 'PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=',
     channelSecret: '537035c20850a60a1da7b96ad8f791bf'
@@ -46,16 +48,14 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         yield client.pushMessage(event.source.userId || '', action);
     }
     if (event.message.type === 'image') {
-        const headers = { 'Authorization': `Bearer ${middlewareConfig.channelAccessToken}` };
-        const data = yield axios_1.default.get(`https://api-data.line.me/v2/bot/message/${event.message.id}/content/preview`, { headers });
         // data.data.pipe(`${event.message.id}.jpg`);
         // data.data.on('finish', () => {
         //     data.data.close();
         //     console.log(`Image downloaded as ${'a'}`);
         // })
         // const messageContent = await client.getMessageContent(event.message.id);
-        const { url } = yield (0, blob_1.put)(`images/${event.message.id}.jpeg`, data.data, { access: 'public' });
-        // const t = await garbagePrediction(data.data)
+        // const { url } = await put(`images/${event.message.id}.jpeg`, data.data, { access: 'public' });
+        const t = yield garbagePrediction(event.message.id);
         // const actionList: FlexMessage[] = []
         // const garbage = garbageList.find(element => (element.name_en === 'plastic'))
         // const action = garbage?.massage as FlexMessage[]
@@ -64,7 +64,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         const action = [
             {
                 type: 'text',
-                text: url
+                text: 'A'
             }
         ];
         yield client.pushMessage(event.source.userId || '', action);
@@ -372,19 +372,30 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
     // })
     // await client.pushMessage(event.source.userId || '', action)
 });
-const garbagePrediction = (image) => __awaiter(void 0, void 0, void 0, function* () {
+const garbagePrediction = (id) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const formData = new FormData();
-        const response = yield axios_1.default.post('http://httpbin.org/post', image, {
-            headers: {
-                "Content-Type": "image/jpeg"
-            }
+        const headers = { 'Authorization': `Bearer PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=` };
+        const image = yield axios_1.default.get(`https://api-data.line.me/v2/bot/message/${id}/content/preview`, {
+            headers,
+            responseType: 'arraybuffer'
         });
-        formData.append('input_file', image);
-        const result = yield axios_1.default.post('https://devrmutto.pythonanywhere.com/p', formData, { headers: { "Content-Type": "application/xml" } });
-        return result.data;
+        const base64File = image.data.toString('base64');
+        const base64Data = base64File.replace(/^data:image\/png;base64,/, '');
+        const uploadFile = path_1.default.join(__dirname, 'temp.jpg');
+        // const writeFilePromise = util.promisify(fs.writeFileSync)
+        fs_1.default.writeFileSync(uploadFile, base64Data, { encoding: 'base64', mode: 0o777 });
+        // const data = fs.createReadStream(uploadFile)
+        // const imageData = Buffer.from(image.data).toString('base64');
+        // const mimeType = image.headers['content-type'];
+        const formData = new form_data_1.default();
+        formData.append('input_file', fs_1.default.createReadStream(uploadFile));
+        const result = yield axios_1.default.post('https://devrmutto.pythonanywhere.com/p', formData, { headers: { "Content-Type": "multipart/form-data" } });
+        // console.log(result.data)
+        // fs.unlinkSync(tempLocalFile)
+        return result.data.result || 'ผิดพลาด';
     }
     catch (error) {
+        console.log('error', error);
         return error;
     }
 });

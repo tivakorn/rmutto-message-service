@@ -4,10 +4,15 @@ import axios from 'axios'
 import garbageList from './static/garbage.json'
 import addedValueContent from './static/added_value.json'
 import replyGame from './static/reply_game.json'
+import path from 'path'
+import os from 'os'
 import fs from 'fs'
+import util from 'util'
 import { put } from "@vercel/blob";
 const port = process.env.PORT || 3000
 import { ClientConfig, MiddlewareConfig, Client, WebhookEvent, MessageAPIResponseBase, TextMessage, FlexMessage, middleware, ImageMessage } from '@line/bot-sdk'
+import { fileFromPath } from 'formdata-node/file-from-path'
+import FormData from 'form-data'
 
 const config: ClientConfig = {
     channelAccessToken: 'PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=',
@@ -47,9 +52,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
     if (event.message.type === 'image') {
 
-        const headers = { 'Authorization': `Bearer ${middlewareConfig.channelAccessToken}` }
 
-        const data = await axios.get(`https://api-data.line.me/v2/bot/message/${event.message.id}/content/preview`, { headers })
 
         // data.data.pipe(`${event.message.id}.jpg`);
 
@@ -61,9 +64,9 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
         // const messageContent = await client.getMessageContent(event.message.id);
 
 
-        const { url } = await put(`images/${event.message.id}.jpeg`, data.data, { access: 'public' });
+        // const { url } = await put(`images/${event.message.id}.jpeg`, data.data, { access: 'public' });
 
-        // const t = await garbagePrediction(data.data)
+        const t = await garbagePrediction(event.message.id)
 
         // const actionList: FlexMessage[] = []
 
@@ -78,7 +81,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
         const action = [
             {
                 type: 'text',
-                text: url
+                text: 'A'
             }
         ] as TextMessage[]
 
@@ -419,26 +422,46 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     // await client.pushMessage(event.source.userId || '', action)
 }
 
-const garbagePrediction = async (image: any) => {
+const garbagePrediction = async (id: string) => {
 
     try {
 
-        const formData = new FormData()
+        const headers = { 'Authorization': `Bearer PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=` }
 
-        const response = await axios.post('http://httpbin.org/post', image, {
-            headers: {
-                "Content-Type": "image/jpeg"
-            }
+        const image = await axios.get(`https://api-data.line.me/v2/bot/message/${id}/content/preview`, {
+            headers,
+            responseType : 'arraybuffer'
         })
 
+        const base64File = image.data.toString('base64')
 
-        formData.append('input_file', image)
+        const base64Data = base64File.replace(/^data:image\/png;base64,/, '')
 
-        const result = await axios.post('https://devrmutto.pythonanywhere.com/p', formData, { headers: { "Content-Type": "application/xml" } })
+        const uploadFile = path.join(__dirname, 'temp.jpg')
 
-        return result.data
+        // const writeFilePromise = util.promisify(fs.writeFileSync)
+
+        fs.writeFileSync(uploadFile, base64Data, { encoding: 'base64', mode: 0o777 })
+
+        // const data = fs.createReadStream(uploadFile)
+
+        // const imageData = Buffer.from(image.data).toString('base64');
+        // const mimeType = image.headers['content-type'];
+
+        const formData = new FormData()
+
+        formData.append('input_file', fs.createReadStream(uploadFile))
+
+        const result = await axios.post('https://devrmutto.pythonanywhere.com/p', formData, { headers: { "Content-Type": "multipart/form-data" } })
+
+        // console.log(result.data)
+        // fs.unlinkSync(tempLocalFile)
+
+        return result.data.result || 'ผิดพลาด'
     }
     catch (error) {
+
+        console.log('error', error)
 
         return error
     }
