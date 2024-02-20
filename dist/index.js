@@ -64,7 +64,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         const action = [
             {
                 type: 'text',
-                text: 'A'
+                text: t
             }
         ];
         yield client.pushMessage(event.source.userId || '', action);

@@ -81,7 +81,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
         const action = [
             {
                 type: 'text',
-                text: 'A'
+                text: t
             }
         ] as TextMessage[]
 
