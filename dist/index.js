@@ -17,8 +17,6 @@ const axios_1 = __importDefault(require("axios"));
 const express_1 = __importDefault(require("express"));
 const garbage_json_1 = __importDefault(require("./static/garbage.json"));
 const added_value_json_1 = __importDefault(require("./static/added_value.json"));
-const path_1 = __importDefault(require("path"));
-const fs_1 = __importDefault(require("fs"));
 const port = process.env.PORT || 3000;
 const bot_sdk_1 = require("@line/bot-sdk");
 // import { fileFromPath } from "formdata-node/file-from-path";
@@ -56,19 +54,24 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         // })
         // const messageContent = await client.getMessageContent(event.message.id);
         // const { url } = await put(`images/${event.message.id}.jpeg`, data.data, { access: 'public' });
-        const t = yield garbagePrediction(event.message.id);
+        const result = yield garbagePrediction(event.message.id);
         // const actionList: FlexMessage[] = []
         // const garbage = garbageList.find(element => (element.name_en === 'plastic'))
-        // const action = garbage?.massage as FlexMessage[]
-        // actionList.push(...action)
-        // await client.pushMessage(event.source.userId || '', actionList)
-        const action = [
-            {
-                type: "text",
-                text: t,
-            },
-        ];
-        yield client.pushMessage(event.source.userId || "", action);
+        const contents = [];
+        for (const word of result.split(',')) {
+            const garbage = garbage_json_1.default.find((element) => element.name_th === word.trim() || element.name_en === word.trim());
+            const action = garbage === null || garbage === void 0 ? void 0 : garbage.massage[0].contents.contents;
+            contents.push(...action);
+        }
+        const flex = {
+            type: "flex",
+            altText: "ทำนายขยะจากรูปภาพ",
+            contents: {
+                type: "carousel",
+                contents: contents,
+            }
+        };
+        yield client.pushMessage(event.source.userId || "", flex);
     }
     if (event.message.type === "text") {
         const message = event.message.text;
@@ -378,69 +381,28 @@ const garbagePrediction = (id) => __awaiter(void 0, void 0, void 0, function* ()
         const headers = {
             Authorization: `Bearer PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=`,
         };
-        const image = yield axios_1.default.get(`https://api-data.line.me/v2/bot/message/${id}/content/preview`, {
+        const resp = yield axios_1.default.get(`https://api-data.line.me/v2/bot/message/${id}/content/preview`, {
             headers,
-            responseType: "arraybuffer",
+            responseType: 'stream'
         });
-        const base64File = image.data.toString("base64");
-        const base64Data = base64File.replace(/^data:image\/png;base64,/, "");
-        const uploadFile = path_1.default.join(__dirname, "temp.jpg");
-        // const writeFilePromise = util.promisify(fs.writeFileSync)
-        fs_1.default.writeFileSync(uploadFile, base64Data, {
-            encoding: "base64",
-            mode: 0o777,
-        });
-        // const data = fs.createReadStream(uploadFile)
-        // const imageData = Buffer.from(image.data).toString('base64');
-        // const mimeType = image.headers['content-type'];
+        const stream = resp.data;
+        const streamRead = yield stream.read();
+        const buffer = Buffer.from(streamRead);
+        const blob = new Blob([buffer]);
         const formData = new FormData();
-        // formData.append("input_file", fs.createReadStream(uploadFile));
-        // const result = await axios.post(
-        //   "https://devrmutto.pythonanywhere.com/p",
-        //   formData,
-        //   { headers: { "Content-Type": "multipart/form-data" } }
-        // );
-        // console.log(result.data)
-        // fs.unlinkSync(tempLocalFile)
-        // return result.data.result || "ผิดพลาด";
+        formData.append('input_file', blob);
+        const res = yield axios_1.default.post('https://devrmutto.pythonanywhere.com/p', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+        return res.data.result;
     }
-    catch (error) {
-        console.log("error", error);
-        return error;
+    catch (err) {
+        console.log(err);
+        return 'เกิดข้อผิดพลาดกรุณาลองใหม่อีกครั้ง';
     }
 });
-const garbagePredictionBest = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log("garbagePredictionBest");
-    const headers = {
-        Authorization: `Bearer PjG+9OmoaDEGKAtNQwDeDI3hxqY0zYqIOKazLJrsv5/cimoq5E+YnmlNjUXQLDmdgBqz4wt5JQoefM+GuqeCVEGPcQAAenyjWJX1wAxzHNIgrD909v2+3kSc1+DziMX+s/wYTitLQsvX0eUFOJi+8gdB04t89/1O/w1cDnyilFU=`,
-    };
-    const resp = yield axios_1.default.get(`https://api-data.line.me/v2/bot/message/${id}/content/preview`, {
-        headers,
-        responseType: "stream",
-    });
-    const stream = resp.data;
-    const streamRead = yield stream.read();
-    const buffer = Buffer.from(streamRead);
-    const blob = new Blob([buffer]);
-    const formData = new FormData();
-    formData.append("input_file", blob);
-    const result = yield axios_1.default.post("https://devrmutto.pythonanywhere.com/p", formData, {
-        headers: {
-            "Content-Type": "multipart/form-data",
-        },
-    });
-    console.log(result.data);
-    return result.data;
-});
-app.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const data = yield garbagePredictionBest(req.params.id);
-        return res.status(200).send(data);
-    }
-    catch (error) {
-        return res.status(400).send(error);
-    }
-}));
 app.post("/webhook", (0, bot_sdk_1.middleware)(middlewareConfig), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const events = req.body.events;
     const results = yield Promise.all(events.map((event) => __awaiter(void 0, void 0, void 0, function* () {
