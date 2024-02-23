@@ -105,7 +105,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         }
         else if (message.includes('ข้อ 9')) {
             const no = 10;
-            yield client.pushMessage(event.source.userId || '', [
+            return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
                     "altText": "This is a Flex Message",
@@ -167,7 +167,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         }
         else if (message.includes('ข้อ 8')) {
             const no = 9;
-            yield client.pushMessage(event.source.userId || '', [
+            return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
                     "altText": "This is a Flex Message",
@@ -229,7 +229,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         }
         else if (message.includes('ข้อ 7')) {
             const no = 8;
-            yield client.pushMessage(event.source.userId || '', [
+            return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
                     "altText": "This is a Flex Message",
@@ -291,7 +291,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         }
         else if (message.includes('ข้อ 6')) {
             const no = 7;
-            yield client.pushMessage(event.source.userId || '', [
+            return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
                     "altText": "This is a Flex Message",
@@ -353,7 +353,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         }
         else if (message.includes('ข้อ 5')) {
             const no = 6;
-            yield client.pushMessage(event.source.userId || '', [
+            return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
                     "altText": "This is a Flex Message",
@@ -415,7 +415,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         }
         else if (message.includes('ข้อ 4')) {
             const no = 5;
-            yield client.pushMessage(event.source.userId || '', [
+            return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
                     "altText": "This is a Flex Message",
@@ -477,7 +477,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         }
         else if (message.includes('ข้อ 3')) {
             const no = 4;
-            yield client.pushMessage(event.source.userId || '', [
+            return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
                     "altText": "This is a Flex Message",
@@ -539,7 +539,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         }
         else if (message.includes('ข้อ 2')) {
             const no = 3;
-            yield client.pushMessage(event.source.userId || '', [
+            return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
                     "altText": "This is a Flex Message",
@@ -601,7 +601,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         }
         else if (message.includes('ข้อ 1')) {
             const no = 2;
-            yield client.pushMessage(event.source.userId || '', [
+            return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
                     "altText": "This is a Flex Message",
@@ -663,7 +663,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         }
         else if (message.includes('เกมทดสอบ')) {
             const no = 1;
-            yield client.pushMessage(event.source.userId || '', [
+            return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
                     "altText": "This is a Flex Message",

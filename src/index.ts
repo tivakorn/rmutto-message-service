@@ -146,7 +146,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
       const no = 10
 
-      await client.pushMessage(event.source.userId || '', [
+      return await client.pushMessage(event.source.userId || '', [
         {
           "type": "flex",
           "altText": "This is a Flex Message",
@@ -210,7 +210,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
       const no = 9
 
-      await client.pushMessage(event.source.userId || '', [
+      return await client.pushMessage(event.source.userId || '', [
         {
           "type": "flex",
           "altText": "This is a Flex Message",
@@ -274,7 +274,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
       const no = 8
 
-      await client.pushMessage(event.source.userId || '', [
+      return await client.pushMessage(event.source.userId || '', [
         {
           "type": "flex",
           "altText": "This is a Flex Message",
@@ -338,7 +338,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
       const no = 7
 
-      await client.pushMessage(event.source.userId || '', [
+      return await client.pushMessage(event.source.userId || '', [
         {
           "type": "flex",
           "altText": "This is a Flex Message",
@@ -402,7 +402,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
       const no = 6
 
-      await client.pushMessage(event.source.userId || '', [
+      return await client.pushMessage(event.source.userId || '', [
         {
           "type": "flex",
           "altText": "This is a Flex Message",
@@ -466,7 +466,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
       const no = 5
 
-      await client.pushMessage(event.source.userId || '', [
+      return await client.pushMessage(event.source.userId || '', [
         {
           "type": "flex",
           "altText": "This is a Flex Message",
@@ -530,7 +530,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
       const no = 4
 
-      await client.pushMessage(event.source.userId || '', [
+      return await client.pushMessage(event.source.userId || '', [
         {
           "type": "flex",
           "altText": "This is a Flex Message",
@@ -594,7 +594,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
       const no = 3
 
-      await client.pushMessage(event.source.userId || '', [
+     return await client.pushMessage(event.source.userId || '', [
         {
           "type": "flex",
           "altText": "This is a Flex Message",
@@ -659,7 +659,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
       const no = 2
 
-      await client.pushMessage(event.source.userId || '', [
+      return await client.pushMessage(event.source.userId || '', [
         {
           "type": "flex",
           "altText": "This is a Flex Message",
@@ -724,7 +724,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
       const no = 1
 
-      await client.pushMessage(event.source.userId || '', [
+      return await client.pushMessage(event.source.userId || '', [
         {
           "type": "flex",
           "altText": "This is a Flex Message",
