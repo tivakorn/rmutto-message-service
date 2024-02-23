@@ -103,6 +103,9 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
             };
             yield client.pushMessage(event.source.userId || "", flex);
         }
+        else if (message.includes('ข้อ 10')) {
+            return;
+        }
         else if (message.includes('ข้อ 9')) {
             const no = 10;
             return yield client.pushMessage(event.source.userId || '', [

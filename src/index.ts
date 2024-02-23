@@ -142,7 +142,12 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
       await client.pushMessage(event.source.userId || "", flex as FlexMessage)
 
-    } else if (message.includes('ข้อ 9')) {
+    } 
+    else if (message.includes('ข้อ 10')) {
+
+      return
+    } 
+    else if (message.includes('ข้อ 9')) {
 
       const no = 10
 
