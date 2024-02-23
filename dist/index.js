@@ -707,7 +707,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                 {
                                     "type": "button",
                                     "style": "primary",
-                                    "color": "#FF0000",
+                                    "color": "#CC0000",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
@@ -719,7 +719,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                 {
                                     "type": "button",
                                     "style": "primary",
-                                    "color": "#0000FF",
+                                    "color": "#0000CC",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
@@ -731,6 +731,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                 {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#00CC00",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
