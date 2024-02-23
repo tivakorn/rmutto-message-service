@@ -762,9 +762,9 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
               "contents": [
                 {
                   "type": "text",
-                  "size": "xl",
+                  "size": "sm",
                   "wrap": true,
-                  "text": "ข้อ 1) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด",
+                  "text": "1) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด",
                   "weight": "bold"
                 },
                 {
