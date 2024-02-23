@@ -143,7 +143,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       await client.pushMessage(event.source.userId || "", flex as FlexMessage)
 
     } else if (message.includes('ข้อ 9')) {
-      
+
       const no = 10
 
       await client.pushMessage(event.source.userId || '', [
@@ -206,8 +206,72 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
         }
       ])
 
+    } else if (message.includes('ข้อ 8')) {
+
+      const no = 9
+
+      await client.pushMessage(event.source.userId || '', [
+        {
+          "type": "flex",
+          "altText": "This is a Flex Message",
+          "contents": {
+            "type": "bubble",
+            "body": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "height": "sm",
+                  "margin": "sm",
+                  "action": {
+                    "type": "message",
+                    "label": "มัธยมศึกษาปีที่ 1",
+                    "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
+                  }
+                },
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "height": "sm",
+                  "margin": "sm",
+                  "action": {
+                    "type": "message",
+                    "label": "มัธยมศึกษาปีที่ 2",
+                    "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
+                  }
+                },
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "height": "sm",
+                  "margin": "sm",
+                  "action": {
+                    "type": "message",
+                    "label": "มัธยมศึกษาปีที่ 1",
+                    "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
+                  }
+                },
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "height": "sm",
+                  "margin": "sm",
+                  "action": {
+                    "type": "message",
+                    "label": "มัธยมศึกษาปีที่ 2",
+                    "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ])
+
     } else if (message.includes('ข้อ 7')) {
-      
+
       const no = 8
 
       await client.pushMessage(event.source.userId || '', [
@@ -270,8 +334,8 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
         }
       ])
 
-    }  else if (message.includes('ข้อ 6')) {
-      
+    } else if (message.includes('ข้อ 6')) {
+
       const no = 7
 
       await client.pushMessage(event.source.userId || '', [
@@ -335,7 +399,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       ])
 
     } else if (message.includes('ข้อ 5')) {
-      
+
       const no = 6
 
       await client.pushMessage(event.source.userId || '', [
@@ -398,7 +462,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
         }
       ])
 
-    }  else if (message.includes('ข้อ 4')) {
+    } else if (message.includes('ข้อ 4')) {
 
       const no = 5
 

@@ -165,6 +165,68 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                 }
             ]);
         }
+        else if (message.includes('ข้อ 8')) {
+            const no = 9;
+            yield client.pushMessage(event.source.userId || '', [
+                {
+                    "type": "flex",
+                    "altText": "This is a Flex Message",
+                    "contents": {
+                        "type": "bubble",
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]);
+        }
         else if (message.includes('ข้อ 7')) {
             const no = 8;
             yield client.pushMessage(event.source.userId || '', [
