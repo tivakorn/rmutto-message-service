@@ -761,8 +761,17 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
               "layout": "vertical",
               "contents": [
                 {
+                  "type": "text",
+                  "size": "xl",
+                  "wrap": true,
+                  "text": "ข้อ 1) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด",
+                  "color": "#ffffff",
+                  "weight": "bold"
+                },
+                {
                   "type": "button",
                   "style": "primary",
+                  "color": "#FF0000",
                   "height": "sm",
                   "margin": "sm",
                   "action": {
@@ -774,6 +783,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 {
                   "type": "button",
                   "style": "primary",
+                  "color": "#0000FF",
                   "height": "sm",
                   "margin": "sm",
                   "action": {
@@ -796,6 +806,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 {
                   "type": "button",
                   "style": "primary",
+                  "color": "#FFFF00",
                   "height": "sm",
                   "margin": "sm",
                   "action": {
