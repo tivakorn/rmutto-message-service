@@ -734,7 +734,9 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                     "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
                   }
                 }
-              ]
+              ],
+              "paddingAll": "20px",
+              "backgroundColor": "#464F69"
             }
           }
         }
@@ -817,7 +819,9 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                     "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`
                   }
                 }
-              ]
+              ],
+              "paddingAll": "20px",
+              "backgroundColor": "#464F69"
             }
           }
         }

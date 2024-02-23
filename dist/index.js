@@ -669,7 +669,9 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                         "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
                                     }
                                 }
-                            ]
+                            ],
+                            "paddingAll": "20px",
+                            "backgroundColor": "#464F69"
                         }
                     }
                 }
@@ -749,7 +751,9 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                         "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`
                                     }
                                 }
-                            ]
+                            ],
+                            "paddingAll": "20px",
+                            "backgroundColor": "#464F69"
                         }
                     }
                 }
