@@ -103,7 +103,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
             };
             yield client.pushMessage(event.source.userId || "", flex);
         }
-        else if (message.includes('ข้อ 10')) {
+        else if (message.includes('ข้อ 8')) {
             let point = 0;
             if (message.includes(`ข้อ ${1} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`)) {
                 point = point + 1;
@@ -111,140 +111,40 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
             else if (message.includes(`ข้อ ${2} : ตอบ ถังขยะทั่วไป (สีน้ำเงิน)`)) {
                 point = point + 1;
             }
+            else if (message.includes(`ข้อ ${3} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`)) {
+                point = point + 1;
+            }
+            else if (message.includes(`ข้อ ${4} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`)) {
+                point = point + 1;
+            }
+            else if (message.includes(`ข้อ ${5} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`)) {
+                point = point + 1;
+            }
+            else if (message.includes(`ข้อ ${6} : ตอบ ถังขยะอันตราย (สีแดง)`)) {
+                point = point + 1;
+            }
+            else if (message.includes(`ข้อ ${7} : ตอบ ถูกทุกข้อ`)) {
+                point = point + 1;
+            }
+            else if (message.includes(`ข้อ ${8} : ตอบ ถูกทุกข้อ`)) {
+                point = point + 1;
+            }
             else {
             }
-            return;
-        }
-        else if (message.includes('ข้อ 9')) {
-            const no = 10;
-            return yield client.pushMessage(event.source.userId || '', [
+            const action = [
                 {
-                    "type": "flex",
-                    "altText": "ข้อ 1) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด",
-                    "contents": {
-                        "type": "bubble",
-                        "body": {
-                            "type": "box",
-                            "layout": "vertical",
-                            "contents": [
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
-                                    }
-                                },
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
-                                    }
-                                },
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
-                                    }
-                                },
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            ]);
-        }
-        else if (message.includes('ข้อ 8')) {
-            const no = 9;
-            return yield client.pushMessage(event.source.userId || '', [
-                {
-                    "type": "flex",
-                    "altText": "This is a Flex Message",
-                    "contents": {
-                        "type": "bubble",
-                        "body": {
-                            "type": "box",
-                            "layout": "vertical",
-                            "contents": [
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
-                                    }
-                                },
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
-                                    }
-                                },
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
-                                    }
-                                },
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            ]);
+                    type: "text",
+                    text: `รวมได้คะแนนทั้งหมด ${point} คะแนน`,
+                },
+            ];
+            return yield client.pushMessage(event.source.userId || "", action);
         }
         else if (message.includes('ข้อ 7')) {
             const no = 8;
             return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
-                    "altText": "This is a Flex Message",
+                    "altText": `${no}) ถ้าเราทิ้งขยะลงแม่น้ำ จะเกิดอะไรขึ้น`,
                     "contents": {
                         "type": "bubble",
                         "body": {
@@ -252,14 +152,21 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                             "layout": "vertical",
                             "contents": [
                                 {
+                                    "type": "text",
+                                    "size": "sm",
+                                    "wrap": true,
+                                    "text": `${no}) ถ้าเราทิ้งขยะลงแม่น้ำ จะเกิดอะไรขึ้น`,
+                                    "weight": "bold"
+                                },
+                                {
                                     "type": "button",
                                     "style": "primary",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
+                                        "label": "ขยะเน่าเปื่อยและทำให้เกิดกลิ่นเหม็น",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ขยะเน่าเปื่อยและทำให้เกิดกลิ่นเหม็น`
                                     }
                                 },
                                 {
@@ -269,8 +176,8 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
+                                        "label": "ขยะอุดตันท่อระบายน้ำ",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ขยะอุดตันท่อระบายน้ำ`
                                     }
                                 },
                                 {
@@ -280,8 +187,8 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
+                                        "label": "ขยะลอยไปเกะกะทางสัญจร",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ขยะลอยไปเกะกะทางสัญจร`
                                     }
                                 },
                                 {
@@ -291,11 +198,13 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
+                                        "label": "ถูกทุกข้อ",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ถูกทุกข้อ`
                                     }
                                 }
-                            ]
+                            ],
+                            "paddingAll": "20px",
+                            "backgroundColor": "#464F69"
                         }
                     }
                 }
@@ -306,7 +215,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
             return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
-                    "altText": "This is a Flex Message",
+                    "altText": `${no}) ถ้าเราทิ้งขยะลงแม่น้ำ จะเกิดอะไรขึ้น`,
                     "contents": {
                         "type": "bubble",
                         "body": {
@@ -314,14 +223,21 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                             "layout": "vertical",
                             "contents": [
                                 {
+                                    "type": "text",
+                                    "size": "sm",
+                                    "wrap": true,
+                                    "text": `${no}) ถ้าเราทิ้งขยะลงแม่น้ำ จะเกิดอะไรขึ้น`,
+                                    "weight": "bold"
+                                },
+                                {
                                     "type": "button",
                                     "style": "primary",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
+                                        "label": "ขยะเน่าเปื่อยและทำให้เกิดกลิ่นเหม็น",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ขยะเน่าเปื่อยและทำให้เกิดกลิ่นเหม็น`
                                     }
                                 },
                                 {
@@ -331,8 +247,8 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
+                                        "label": "ขยะอุดตันท่อระบายน้ำ",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ขยะอุดตันท่อระบายน้ำ`
                                     }
                                 },
                                 {
@@ -342,8 +258,8 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
+                                        "label": "ขยะลอยไปเกะกะทางสัญจร",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ขยะลอยไปเกะกะทางสัญจร`
                                     }
                                 },
                                 {
@@ -353,11 +269,13 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
+                                        "label": "ถูกทุกข้อ",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ถูกทุกข้อ`
                                     }
                                 }
-                            ]
+                            ],
+                            "paddingAll": "20px",
+                            "backgroundColor": "#464F69"
                         }
                     }
                 }
@@ -368,58 +286,79 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
             return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
-                    "altText": "This is a Flex Message",
+                    "altText": `${no}) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด`,
                     "contents": {
                         "type": "bubble",
+                        "hero": {
+                            "type": "image",
+                            "size": "full",
+                            "aspectRatio": "20:13",
+                            "aspectMode": "cover",
+                            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/image5.png?alt=media&token=69938c6d-9334-4a98-bbe0-612e59c98c59"
+                        },
                         "body": {
                             "type": "box",
                             "layout": "vertical",
                             "contents": [
                                 {
+                                    "type": "text",
+                                    "size": "sm",
+                                    "wrap": true,
+                                    "color": "#ffffff",
+                                    "text": `${no}) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด`,
+                                    "weight": "bold"
+                                },
+                                {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#CC0000",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
+                                        "label": "ถังขยะอันตราย (สีแดง)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะอันตราย (สีแดง)`
                                     }
                                 },
                                 {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#0000CC",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
+                                        "label": "ถังขยะทั่วไป (สีน้ำเงิน)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะทั่วไป (สีน้ำเงิน)`
                                     }
                                 },
                                 {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#00CC00",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
+                                        "label": "ถังขยะย่อยสลาย (สีเขียว)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ถังขยะย่อยสลาย (สีเขียว)`
                                     }
                                 },
                                 {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#CCCC00",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
+                                        "label": "ถังขยะรีไซเคิล (สีเหลือง)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`
                                     }
                                 }
-                            ]
+                            ],
+                            "paddingAll": "20px",
+                            "backgroundColor": "#464F69"
                         }
                     }
                 }
@@ -430,58 +369,79 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
             return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
-                    "altText": "This is a Flex Message",
+                    "altText": `${no}) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด`,
                     "contents": {
                         "type": "bubble",
+                        "hero": {
+                            "type": "image",
+                            "size": "full",
+                            "aspectRatio": "20:13",
+                            "aspectMode": "cover",
+                            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/image3.png?alt=media&token=d0d87862-5b77-4245-9505-d216a439f8bc"
+                        },
                         "body": {
                             "type": "box",
                             "layout": "vertical",
                             "contents": [
                                 {
+                                    "type": "text",
+                                    "size": "sm",
+                                    "wrap": true,
+                                    "color": "#ffffff",
+                                    "text": `${no}) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด`,
+                                    "weight": "bold"
+                                },
+                                {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#CC0000",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
+                                        "label": "ถังขยะอันตราย (สีแดง)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะอันตราย (สีแดง)`
                                     }
                                 },
                                 {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#0000CC",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
+                                        "label": "ถังขยะทั่วไป (สีน้ำเงิน)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะทั่วไป (สีน้ำเงิน)`
                                     }
                                 },
                                 {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#00CC00",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
+                                        "label": "ถังขยะย่อยสลาย (สีเขียว)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ถังขยะย่อยสลาย (สีเขียว)`
                                     }
                                 },
                                 {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#CCCC00",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
+                                        "label": "ถังขยะรีไซเคิล (สีเหลือง)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`
                                     }
                                 }
-                            ]
+                            ],
+                            "paddingAll": "20px",
+                            "backgroundColor": "#464F69"
                         }
                     }
                 }
@@ -492,58 +452,79 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
             return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
-                    "altText": "This is a Flex Message",
+                    "altText": `${no}) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด`,
                     "contents": {
                         "type": "bubble",
+                        "hero": {
+                            "type": "image",
+                            "size": "full",
+                            "aspectRatio": "20:13",
+                            "aspectMode": "cover",
+                            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/image4.png?alt=media&token=c57e820b-c2c1-4edf-a5a8-e54c3a27bbc4"
+                        },
                         "body": {
                             "type": "box",
                             "layout": "vertical",
                             "contents": [
                                 {
+                                    "type": "text",
+                                    "size": "sm",
+                                    "wrap": true,
+                                    "color": "#ffffff",
+                                    "text": `${no}) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด`,
+                                    "weight": "bold"
+                                },
+                                {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#CC0000",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
+                                        "label": "ถังขยะอันตราย (สีแดง)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะอันตราย (สีแดง)`
                                     }
                                 },
                                 {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#0000CC",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
+                                        "label": "ถังขยะทั่วไป (สีน้ำเงิน)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะทั่วไป (สีน้ำเงิน)`
                                     }
                                 },
                                 {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#00CC00",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
+                                        "label": "ถังขยะย่อยสลาย (สีเขียว)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ถังขยะย่อยสลาย (สีเขียว)`
                                     }
                                 },
                                 {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#CCCC00",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
+                                        "label": "ถังขยะรีไซเคิล (สีเหลือง)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`
                                     }
                                 }
-                            ]
+                            ],
+                            "paddingAll": "20px",
+                            "backgroundColor": "#464F69"
                         }
                     }
                 }
@@ -554,55 +535,74 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
             return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
-                    "altText": "This is a Flex Message",
+                    "altText": `${no}) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด`,
                     "contents": {
                         "type": "bubble",
+                        "hero": {
+                            "type": "image",
+                            "size": "full",
+                            "aspectRatio": "20:13",
+                            "aspectMode": "cover",
+                            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/image1.png?alt=media&token=c5920122-99fd-4480-be29-52a3640ad47f"
+                        },
                         "body": {
                             "type": "box",
                             "layout": "vertical",
                             "contents": [
                                 {
+                                    "type": "text",
+                                    "size": "sm",
+                                    "wrap": true,
+                                    "color": "#ffffff",
+                                    "text": `${no}) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด`,
+                                    "weight": "bold"
+                                },
+                                {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#CC0000",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
+                                        "label": "ถังขยะอันตราย (สีแดง)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะอันตราย (สีแดง)`
                                     }
                                 },
                                 {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#0000CC",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
+                                        "label": "ถังขยะทั่วไป (สีน้ำเงิน)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะทั่วไป (สีน้ำเงิน)`
                                     }
                                 },
                                 {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#00CC00",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
+                                        "label": "ถังขยะย่อยสลาย (สีเขียว)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ถังขยะย่อยสลาย (สีเขียว)`
                                     }
                                 },
                                 {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#CCCC00",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
+                                        "label": "ถังขยะรีไซเคิล (สีเหลือง)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`
                                     }
                                 }
                             ],
@@ -618,55 +618,74 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
             return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
-                    "altText": "This is a Flex Message",
+                    "altText": `${no}) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด`,
                     "contents": {
                         "type": "bubble",
+                        "hero": {
+                            "type": "image",
+                            "size": "full",
+                            "aspectRatio": "20:13",
+                            "aspectMode": "cover",
+                            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/image2.png?alt=media&token=b520cca5-c502-4805-bf6c-a4ae1621f54d"
+                        },
                         "body": {
                             "type": "box",
                             "layout": "vertical",
                             "contents": [
                                 {
+                                    "type": "text",
+                                    "size": "sm",
+                                    "wrap": true,
+                                    "color": "#ffffff",
+                                    "text": `${no}) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด`,
+                                    "weight": "bold"
+                                },
+                                {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#CC0000",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
+                                        "label": "ถังขยะอันตราย (สีแดง)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะอันตราย (สีแดง)`
                                     }
                                 },
                                 {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#0000CC",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
+                                        "label": "ถังขยะทั่วไป (สีน้ำเงิน)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะทั่วไป (สีน้ำเงิน)`
                                     }
                                 },
                                 {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#00CC00",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
+                                        "label": "ถังขยะย่อยสลาย (สีเขียว)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ถังขยะย่อยสลาย (สีเขียว)`
                                     }
                                 },
                                 {
                                     "type": "button",
                                     "style": "primary",
+                                    "color": "#CCCC00",
                                     "height": "sm",
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
+                                        "label": "ถังขยะรีไซเคิล (สีเหลือง)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`
                                     }
                                 }
                             ],
@@ -677,12 +696,12 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                 }
             ]);
         }
-        else if (message.includes('เกมทดสอบ')) {
+        else if (message.includes('เกมทดสอบตอบปัญหา')) {
             const no = 1;
             return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
-                    "altText": "ข้อ 1) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด",
+                    "altText": `${no}) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด`,
                     "contents": {
                         "type": "bubble",
                         "hero": {
@@ -701,7 +720,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "size": "sm",
                                     "wrap": true,
                                     "color": "#ffffff",
-                                    "text": "1) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด",
+                                    "text": `${no}) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด`,
                                     "weight": "bold"
                                 },
                                 {
