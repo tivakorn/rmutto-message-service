@@ -742,7 +742,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                   "action": {
                     "type": "message",
                     "label": "มัธยมศึกษาปีที่ 1",
-                    "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
+                    "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ก.`
                   }
                 },
                 {
@@ -753,7 +753,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                   "action": {
                     "type": "message",
                     "label": "มัธยมศึกษาปีที่ 2",
-                    "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
+                    "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ข.`
                   }
                 },
                 {
@@ -764,7 +764,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                   "action": {
                     "type": "message",
                     "label": "มัธยมศึกษาปีที่ 1",
-                    "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
+                    "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ค.`
                   }
                 },
                 {
@@ -775,7 +775,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                   "action": {
                     "type": "message",
                     "label": "มัธยมศึกษาปีที่ 2",
-                    "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
+                    "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ง.`
                   }
                 }
               ]
