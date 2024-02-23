@@ -340,7 +340,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
             "type": "bubble",
             "body": {
               "type": "box",
-              "layout": "horizontal",
+              "layout": 'baseline',
               "contents": [
                 {
                   "type": "button",

@@ -296,7 +296,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                         "type": "bubble",
                         "body": {
                             "type": "box",
-                            "layout": "horizontal",
+                            "layout": 'baseline',
                             "contents": [
                                 {
                                     "type": "button",
