@@ -155,8 +155,8 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "ขยะเน่าเปื่อยและทำให้เกิดกลิ่นเหม็น",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ขยะเน่าเปื่อยและทำให้เกิดกลิ่นเหม็น`
+                                        "label": "ขยะเน่าเปื่อยทำให้เกิดกลิ่นเหม็น",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ขยะเน่าเปื่อยทำให้เกิดกลิ่นเหม็น`
                                     }
                                 },
                                 {
@@ -227,8 +227,8 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "ขยะเน่าเปื่อยและทำให้เกิดกลิ่นเหม็น",
-                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ขยะเน่าเปื่อยและทำให้เกิดกลิ่นเหม็น`
+                                        "label": "ขยะเน่าเปื่อยแำให้เกิดกลิ่นเหม็น",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ขยะเน่าเปื่อยทำให้เกิดกลิ่นเหม็น`
                                     }
                                 },
                                 {
@@ -723,7 +723,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "action": {
                                         "type": "message",
                                         "label": "ถังขยะอันตราย (สีแดง)",
-                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะอันตราย (สีแดง)`
+                                        "text": "คำตอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะอันตราย (สีแดง)`
                                     }
                                 },
                                 {
@@ -735,7 +735,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "action": {
                                         "type": "message",
                                         "label": "ถังขยะทั่วไป (สีน้ำเงิน)",
-                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะทั่วไป (สีน้ำเงิน)`
+                                        "text": "คำตอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะทั่วไป (สีน้ำเงิน)`
                                     }
                                 },
                                 {
@@ -747,7 +747,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "action": {
                                         "type": "message",
                                         "label": "ถังขยะย่อยสลาย (สีเขียว)",
-                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ถังขยะย่อยสลาย (สีเขียว)`
+                                        "text": "คำตอบ" + '\n' + `ข้อ ${no} : ถังขยะย่อยสลาย (สีเขียว)`
                                     }
                                 },
                                 {
@@ -759,7 +759,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "action": {
                                         "type": "message",
                                         "label": "ถังขยะรีไซเคิล (สีเหลือง)",
-                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`
+                                        "text": "คำตอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`
                                     }
                                 }
                             ],
