@@ -105,31 +105,19 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         }
         else if (message.includes('ข้อ 8')) {
             let point = 0;
-            if (message.includes(`ข้อ ${1} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`)) {
-                point = point + 1;
-            }
-            else if (message.includes(`ข้อ ${2} : ตอบ ถังขยะทั่วไป (สีน้ำเงิน)`)) {
-                point = point + 1;
-            }
-            else if (message.includes(`ข้อ ${3} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`)) {
-                point = point + 1;
-            }
-            else if (message.includes(`ข้อ ${4} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`)) {
-                point = point + 1;
-            }
-            else if (message.includes(`ข้อ ${5} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`)) {
-                point = point + 1;
-            }
-            else if (message.includes(`ข้อ ${6} : ตอบ ถังขยะอันตราย (สีแดง)`)) {
-                point = point + 1;
-            }
-            else if (message.includes(`ข้อ ${7} : ตอบ ถูกทุกข้อ`)) {
-                point = point + 1;
-            }
-            else if (message.includes(`ข้อ ${8} : ตอบ ถูกทุกข้อ`)) {
-                point = point + 1;
-            }
-            else {
+            const result = {
+                result_1: `ข้อ ${1} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`,
+                result_2: `ข้อ ${2} : ตอบ ถังขยะทั่วไป (สีน้ำเงิน)`,
+                result_3: `ข้อ ${3} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`,
+                result_4: `ข้อ ${4} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`,
+                result_5: `ข้อ ${4} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`,
+                result_6: `ข้อ ${6} : ตอบ ถังขยะอันตราย (สีแดง)`,
+                result_7: `ข้อ ${7} : ตอบ ถูกทุกข้อ`,
+                result_8: `ข้อ ${8} : ตอบ ถูกทุกข้อ`
+            };
+            for (let i = 1; i <= 8; i++) {
+                if (message.includes(result[0]))
+                    point = point + 1;
             }
             const action = [
                 {
