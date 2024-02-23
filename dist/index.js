@@ -103,7 +103,8 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
             };
             yield client.pushMessage(event.source.userId || "", flex);
         }
-        else if (message.includes('ข้อ 3')) {
+        else if (message.includes('ข้อ 9')) {
+            const no = 10;
             yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
@@ -113,190 +114,6 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                         "body": {
                             "type": "box",
                             "layout": "vertical",
-                            "contents": [
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + 'ข้อ 4 : ตอบ ก.'
-                                    }
-                                },
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": "ข้อ 1 : ตอบ ข."
-                                    }
-                                },
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": "ข้อ 1 : ตอบ ค."
-                                    }
-                                },
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": "ข้อ 1 : ตอบ ง."
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            ]);
-        }
-        else if (message.includes('ข้อ 2')) {
-            yield client.pushMessage(event.source.userId || '', [
-                {
-                    "type": "flex",
-                    "altText": "This is a Flex Message",
-                    "contents": {
-                        "type": "bubble",
-                        "body": {
-                            "type": "box",
-                            "layout": "vertical",
-                            "contents": [
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + 'ข้อ 3 : ตอบ ก.'
-                                    }
-                                },
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": "ข้อ 1 : ตอบ ข."
-                                    }
-                                },
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": "ข้อ 1 : ตอบ ค."
-                                    }
-                                },
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": "ข้อ 1 : ตอบ ง."
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            ]);
-        }
-        else if (message.includes('ข้อ 1')) {
-            yield client.pushMessage(event.source.userId || '', [
-                {
-                    "type": "flex",
-                    "altText": "This is a Flex Message",
-                    "contents": {
-                        "type": "bubble",
-                        "body": {
-                            "type": "box",
-                            "layout": "vertical",
-                            "contents": [
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + 'ข้อ 2 : ตอบ ก.'
-                                    }
-                                },
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + 'ข้อ 2 : ตอบ ข.'
-                                    }
-                                },
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": message + '\n' + 'ข้อ 2 : ตอบ ค.'
-                                    }
-                                },
-                                {
-                                    "type": "button",
-                                    "style": "primary",
-                                    "height": "sm",
-                                    "margin": "sm",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": message + '\n' + 'ข้อ 2 : ตอบ ง.'
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            ]);
-        }
-        else if (message.includes('เกมทดสอบ')) {
-            const no = 1;
-            yield client.pushMessage(event.source.userId || '', [
-                {
-                    "type": "flex",
-                    "altText": "This is a Flex Message",
-                    "contents": {
-                        "type": "bubble",
-                        "body": {
-                            "type": "box",
-                            "layout": 'baseline',
                             "contents": [
                                 {
                                     "type": "button",
@@ -348,65 +165,500 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                 }
             ]);
         }
-        else if (message.includes("เกมทดสอบ")) {
-            yield client.pushMessage(event.source.userId || "", [
+        else if (message.includes('ข้อ 7')) {
+            const no = 8;
+            yield client.pushMessage(event.source.userId || '', [
                 {
-                    type: "flex",
-                    altText: "This is a Flex Message",
-                    contents: {
-                        type: "bubble",
-                        body: {
-                            type: "box",
-                            layout: "vertical",
-                            contents: [
+                    "type": "flex",
+                    "altText": "This is a Flex Message",
+                    "contents": {
+                        "type": "bubble",
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
                                 {
-                                    type: "button",
-                                    style: "primary",
-                                    height: "sm",
-                                    margin: "sm",
-                                    action: {
-                                        type: "message",
-                                        label: "มัธยมศึกษาปีที่ 1",
-                                        text: message + "\n" + "ข้อ 1 : ตอบ ก.",
-                                    },
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
+                                    }
                                 },
                                 {
-                                    type: "button",
-                                    style: "primary",
-                                    height: "sm",
-                                    margin: "sm",
-                                    action: {
-                                        type: "message",
-                                        label: "มัธยมศึกษาปีที่ 2",
-                                        text: "ข้อ 1 : ตอบ ข.",
-                                    },
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
+                                    }
                                 },
                                 {
-                                    type: "button",
-                                    style: "primary",
-                                    height: "sm",
-                                    margin: "sm",
-                                    action: {
-                                        type: "message",
-                                        label: "มัธยมศึกษาปีที่ 1",
-                                        text: "ข้อ 1 : ตอบ ค.",
-                                    },
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
+                                    }
                                 },
                                 {
-                                    type: "button",
-                                    style: "primary",
-                                    height: "sm",
-                                    margin: "sm",
-                                    action: {
-                                        type: "message",
-                                        label: "มัธยมศึกษาปีที่ 2",
-                                        text: "ข้อ 1 : ตอบ ง.",
-                                    },
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]);
+        }
+        else if (message.includes('ข้อ 6')) {
+            const no = 7;
+            yield client.pushMessage(event.source.userId || '', [
+                {
+                    "type": "flex",
+                    "altText": "This is a Flex Message",
+                    "contents": {
+                        "type": "bubble",
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
+                                    }
                                 },
-                            ],
-                        },
-                    },
-                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]);
+        }
+        else if (message.includes('ข้อ 5')) {
+            const no = 6;
+            yield client.pushMessage(event.source.userId || '', [
+                {
+                    "type": "flex",
+                    "altText": "This is a Flex Message",
+                    "contents": {
+                        "type": "bubble",
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]);
+        }
+        else if (message.includes('ข้อ 4')) {
+            const no = 5;
+            yield client.pushMessage(event.source.userId || '', [
+                {
+                    "type": "flex",
+                    "altText": "This is a Flex Message",
+                    "contents": {
+                        "type": "bubble",
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]);
+        }
+        else if (message.includes('ข้อ 3')) {
+            const no = 4;
+            yield client.pushMessage(event.source.userId || '', [
+                {
+                    "type": "flex",
+                    "altText": "This is a Flex Message",
+                    "contents": {
+                        "type": "bubble",
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]);
+        }
+        else if (message.includes('ข้อ 2')) {
+            const no = 3;
+            yield client.pushMessage(event.source.userId || '', [
+                {
+                    "type": "flex",
+                    "altText": "This is a Flex Message",
+                    "contents": {
+                        "type": "bubble",
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]);
+        }
+        else if (message.includes('ข้อ 1')) {
+            const no = 2;
+            yield client.pushMessage(event.source.userId || '', [
+                {
+                    "type": "flex",
+                    "altText": "This is a Flex Message",
+                    "contents": {
+                        "type": "bubble",
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]);
+        }
+        else if (message.includes('เกมทดสอบ')) {
+            const no = 1;
+            yield client.pushMessage(event.source.userId || '', [
+                {
+                    "type": "flex",
+                    "altText": "This is a Flex Message",
+                    "contents": {
+                        "type": "bubble",
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ก.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ข.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 1",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ค.`
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "style": "primary",
+                                    "height": "sm",
+                                    "margin": "sm",
+                                    "action": {
+                                        "type": "message",
+                                        "label": "มัธยมศึกษาปีที่ 2",
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
             ]);
         }
         else {
