@@ -142,11 +142,11 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
       await client.pushMessage(event.source.userId || "", flex as FlexMessage)
 
-    } 
+    }
     else if (message.includes('ข้อ 10')) {
 
       return
-    } 
+    }
     else if (message.includes('ข้อ 9')) {
 
       const no = 10
@@ -599,7 +599,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
       const no = 3
 
-     return await client.pushMessage(event.source.userId || '', [
+      return await client.pushMessage(event.source.userId || '', [
         {
           "type": "flex",
           "altText": "This is a Flex Message",
@@ -735,6 +735,13 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
           "altText": "This is a Flex Message",
           "contents": {
             "type": "bubble",
+            "hero": {
+              "type": "image",
+              "size": "full",
+              "aspectRatio": "20:13",
+              "aspectMode": "cover",
+              "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/thumb1366x635.jpg?alt=media&token=e2e07cb7-c798-475d-9074-813a82e9fb5a"
+            },
             "body": {
               "type": "box",
               "layout": "vertical",

@@ -672,6 +672,13 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                     "altText": "This is a Flex Message",
                     "contents": {
                         "type": "bubble",
+                        "hero": {
+                            "type": "image",
+                            "size": "full",
+                            "aspectRatio": "20:13",
+                            "aspectMode": "cover",
+                            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/thumb1366x635.jpg?alt=media&token=e2e07cb7-c798-475d-9074-813a82e9fb5a"
+                        },
                         "body": {
                             "type": "box",
                             "layout": "vertical",
