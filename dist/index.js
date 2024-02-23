@@ -104,6 +104,15 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
             yield client.pushMessage(event.source.userId || "", flex);
         }
         else if (message.includes('ข้อ 10')) {
+            let point = 0;
+            if (message.includes(`ข้อ ${1} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`)) {
+                point = point + 1;
+            }
+            else if (message.includes(`ข้อ ${2} : ตอบ ถังขยะทั่วไป (สีน้ำเงิน)`)) {
+                point = point + 1;
+            }
+            else {
+            }
             return;
         }
         else if (message.includes('ข้อ 9')) {
@@ -111,7 +120,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
             return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
-                    "altText": "This is a Flex Message",
+                    "altText": "ข้อ 1) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด",
                     "contents": {
                         "type": "bubble",
                         "body": {
@@ -669,7 +678,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
             return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
-                    "altText": "This is a Flex Message",
+                    "altText": "ข้อ 1) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด",
                     "contents": {
                         "type": "bubble",
                         "hero": {
@@ -677,7 +686,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                             "size": "full",
                             "aspectRatio": "20:13",
                             "aspectMode": "cover",
-                            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/thumb1366x635.jpg?alt=media&token=e2e07cb7-c798-475d-9074-813a82e9fb5a"
+                            "url": "https://firebasestorage.googleapis.com/v0/b/rmutto-massage-service.appspot.com/o/image6.png?alt=media&token=688377be-cb16-4726-b295-e0fa6bde8ad6"
                         },
                         "body": {
                             "type": "box",
@@ -690,8 +699,8 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ก.`
+                                        "label": "ถังขยะอันตราย (สีแดง)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะอันตราย (สีแดง)`
                                     }
                                 },
                                 {
@@ -701,8 +710,8 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ข.`
+                                        "label": "ถังขยะทั่วไป (สีน้ำเงิน)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะทั่วไป (สีน้ำเงิน)`
                                     }
                                 },
                                 {
@@ -712,8 +721,8 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 1",
-                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ค.`
+                                        "label": "ถังขยะย่อยสลาย (สีเขียว)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ถังขยะย่อยสลาย (สีเขียว)`
                                     }
                                 },
                                 {
@@ -723,8 +732,8 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "margin": "sm",
                                     "action": {
                                         "type": "message",
-                                        "label": "มัธยมศึกษาปีที่ 2",
-                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ง.`
+                                        "label": "ถังขยะรีไซเคิล (สีเหลือง)",
+                                        "text": "คำตอบเกมทดสอบ" + '\n' + `ข้อ ${no} : ตอบ ถังขยะรีไซเคิล (สีเหลือง)`
                                     }
                                 }
                             ]
