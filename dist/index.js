@@ -115,8 +115,9 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                 result_7: `ข้อ ${7} : ตอบ ถูกทุกข้อ`,
                 result_8: `ข้อ ${8} : ตอบ ถูกทุกข้อ`
             };
+            const keyResult = Object.keys(result);
             for (let i = 1; i <= 8; i++) {
-                if (message.includes(result[0]))
+                if (message.includes(result[keyResult[0]]))
                     point = point + 1;
             }
             const action = [
@@ -143,6 +144,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "type": "text",
                                     "size": "sm",
                                     "wrap": true,
+                                    "color": "#ffffff",
                                     "text": `${no}) ถ้าเราทิ้งขยะลงแม่น้ำ จะเกิดอะไรขึ้น`,
                                     "weight": "bold"
                                 },
@@ -176,7 +178,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "action": {
                                         "type": "message",
                                         "label": "ขยะลอยไปเกะกะทางสัญจร",
-                                        "text": message + '\n' + `ข้อ ${no} : ขยะลอยไปเกะกะทางสัญจร`
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ขยะลอยไปเกะกะทางสัญจร`
                                     }
                                 },
                                 {
@@ -187,7 +189,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "action": {
                                         "type": "message",
                                         "label": "ถูกทุกข้อ",
-                                        "text": message + '\n' + `ข้อ ${no} : ถูกทุกข้อ`
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ถูกทุกข้อ`
                                     }
                                 }
                             ],
@@ -214,6 +216,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "type": "text",
                                     "size": "sm",
                                     "wrap": true,
+                                    "color": "#ffffff",
                                     "text": `${no}) ถ้าเราทิ้งขยะลงแม่น้ำ จะเกิดอะไรขึ้น`,
                                     "weight": "bold"
                                 },
@@ -247,7 +250,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "action": {
                                         "type": "message",
                                         "label": "ขยะลอยไปเกะกะทางสัญจร",
-                                        "text": message + '\n' + `ข้อ ${no} : ขยะลอยไปเกะกะทางสัญจร`
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ขยะลอยไปเกะกะทางสัญจร`
                                     }
                                 },
                                 {
@@ -258,7 +261,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "action": {
                                         "type": "message",
                                         "label": "ถูกทุกข้อ",
-                                        "text": message + '\n' + `ข้อ ${no} : ถูกทุกข้อ`
+                                        "text": message + '\n' + `ข้อ ${no} : ตอบ ถูกทุกข้อ`
                                     }
                                 }
                             ],
