@@ -605,7 +605,9 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                         "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
                                     }
                                 }
-                            ]
+                            ],
+                            "paddingAll": "20px",
+                            "backgroundColor": "#464F69"
                         }
                     }
                 }
@@ -696,6 +698,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "type": "text",
                                     "size": "sm",
                                     "wrap": true,
+                                    "color": "#ffffff",
                                     "text": "1) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด",
                                     "weight": "bold"
                                 },

@@ -667,7 +667,9 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                     "text": message + '\n' + `ข้อ ${no} : ตอบ ง.`
                   }
                 }
-              ]
+              ],
+              "paddingAll": "20px",
+              "backgroundColor": "#464F69"
             }
           }
         }
@@ -764,6 +766,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                   "type": "text",
                   "size": "sm",
                   "wrap": true,
+                  "color": "#ffffff",
                   "text": "1) ขยะดังภาพด้านล่าง ควรทิ้งลงในถังขยะใด",
                   "weight": "bold"
                 },
