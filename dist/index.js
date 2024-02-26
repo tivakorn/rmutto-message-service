@@ -125,7 +125,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                 result_8: `ข้อ ${8} : ตอบ ถูกทุกข้อ`
             };
             const keyResult = Object.keys(result);
-            for (let i = 1; i <= 8; i++) {
+            for (let i = 0; i <= 8; i++) {
                 if (message.includes(result[keyResult[i]]))
                     point = point + 1;
             }
