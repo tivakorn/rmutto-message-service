@@ -80,8 +80,19 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
     // const garbage = garbageList.find(element => (element.name_en === 'plastic'))
 
-    const contents = [];
+    if (result === 'เกิดข้อผิดพลาดกรุณาลองใหม่อีกครั้ง') {
 
+      const action = [
+        {
+          type: "text",
+          text: "เกิดข้อผิดพลาดกรุณาลองใหม่อีกครั้ง",
+        },
+      ] as TextMessage[];
+
+      return await client.pushMessage(event.source.userId || "", action);
+      
+    }
+    const contents = [];
 
     for (const word of result.split(',')) {
 
@@ -101,7 +112,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       }
     }
 
-    await client.pushMessage(event.source.userId || "", flex as FlexMessage);
+    return await client.pushMessage(event.source.userId || "", flex as FlexMessage);
   }
 
   if (event.message.type === "text") {

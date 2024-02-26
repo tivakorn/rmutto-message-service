@@ -57,6 +57,15 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
         const result = yield garbagePrediction(event.message.id);
         // const actionList: FlexMessage[] = []
         // const garbage = garbageList.find(element => (element.name_en === 'plastic'))
+        if (result === 'เกิดข้อผิดพลาดกรุณาลองใหม่อีกครั้ง') {
+            const action = [
+                {
+                    type: "text",
+                    text: "เกิดข้อผิดพลาดกรุณาลองใหม่อีกครั้ง",
+                },
+            ];
+            return yield client.pushMessage(event.source.userId || "", action);
+        }
         const contents = [];
         for (const word of result.split(',')) {
             const garbage = garbage_json_1.default.find((element) => element.name_th === word.trim() || element.name_en === word.trim());
@@ -71,7 +80,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                 contents: contents,
             }
         };
-        yield client.pushMessage(event.source.userId || "", flex);
+        return yield client.pushMessage(event.source.userId || "", flex);
     }
     if (event.message.type === "text") {
         const message = event.message.text;
