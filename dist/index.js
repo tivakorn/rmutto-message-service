@@ -117,7 +117,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
             };
             const keyResult = Object.keys(result);
             for (let i = 1; i <= 8; i++) {
-                if (message.includes(result[keyResult[0]]))
+                if (message.includes(result[keyResult[i]]))
                     point = point + 1;
             }
             const resText = point < 4 ? "แล้วมาเล่นเกมตอบคำตอบใหม่นะครับ 😊" : "เก่งมากครับ คุณสามารถแยกขยะแต่ละประเภทได้ยอดเยี่ยม 👍";

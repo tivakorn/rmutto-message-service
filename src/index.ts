@@ -146,7 +146,6 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
     } else if (message.includes('ข้อ 8')) {
 
-
       let point = 0
 
       const result: { [key: string]: string } = {
@@ -164,7 +163,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
       for (let i = 1; i <= 8; i++) {
 
-        if (message.includes(result[keyResult[0]])) point = point + 1
+        if (message.includes(result[keyResult[i]])) point = point + 1
       }
 
       const resText = point < 4 ? "แล้วมาเล่นเกมตอบคำตอบใหม่นะครับ 😊" : "เก่งมากครับ คุณสามารถแยกขยะแต่ละประเภทได้ยอดเยี่ยม 👍"
