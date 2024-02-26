@@ -171,7 +171,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
       const keyResult = Object.keys(result)
 
-      for (let i = 0; i <= 8; i++) {
+      for (let i = 0; i <= 7; i++) {
 
         if (message.includes(result[keyResult[i]])) point = point + 1
       }
