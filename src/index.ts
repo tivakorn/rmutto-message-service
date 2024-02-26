@@ -294,7 +294,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                   "margin": "sm",
                   "action": {
                     "type": "message",
-                    "label": "ขยะเน่าเปื่อยแำให้เกิดกลิ่นเหม็น",
+                    "label": "ขยะเน่าเปื่อยทำให้เกิดกลิ่นเหม็น",
                     "text": message + '\n' + `ข้อ ${no} : ตอบ ขยะเน่าเปื่อยทำให้เกิดกลิ่นเหม็น`
                   }
                 },
