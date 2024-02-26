@@ -183,7 +183,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       return await client.pushMessage(event.source.userId || '', [
         {
           "type": "flex",
-          "altText": `${no}) ถ้าเราทิ้งขยะลงแม่น้ำ จะเกิดอะไรขึ้น`,
+          "altText": `${no}) เราสามารถทำอะไรได้บ้างเพื่อช่วยลดปริมาณขยะ`,
           "contents": {
             "type": "bubble",
             "body": {
@@ -195,7 +195,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                   "size": "sm",
                   "wrap": true,
                   "color": "#ffffff",
-                  "text": `${no}) ถ้าเราทิ้งขยะลงแม่น้ำ จะเกิดอะไรขึ้น`,
+                  "text": `${no}) เราสามารถทำอะไรได้บ้างเพื่อช่วยลดปริมาณขยะ`,
                   "weight": "bold"
                 },
                 {

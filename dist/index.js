@@ -133,7 +133,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
             return yield client.pushMessage(event.source.userId || '', [
                 {
                     "type": "flex",
-                    "altText": `${no}) ถ้าเราทิ้งขยะลงแม่น้ำ จะเกิดอะไรขึ้น`,
+                    "altText": `${no}) เราสามารถทำอะไรได้บ้างเพื่อช่วยลดปริมาณขยะ`,
                     "contents": {
                         "type": "bubble",
                         "body": {
@@ -145,7 +145,7 @@ const textEventHandler = (event) => __awaiter(void 0, void 0, void 0, function* 
                                     "size": "sm",
                                     "wrap": true,
                                     "color": "#ffffff",
-                                    "text": `${no}) ถ้าเราทิ้งขยะลงแม่น้ำ จะเกิดอะไรขึ้น`,
+                                    "text": `${no}) เราสามารถทำอะไรได้บ้างเพื่อช่วยลดปริมาณขยะ`,
                                     "weight": "bold"
                                 },
                                 {
